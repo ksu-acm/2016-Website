@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function (){return view('front/index');});
+Route::get('/events', function (){return view('front/events');});
+Route::get('/officers', function (){return view('front/officers');});
+Route::get('/jrofficers', function (){return view('front/jrofficers');});
 
 //Authentication
 Route::get('auth/login', 'Auth\AuthController@CASLogin');
