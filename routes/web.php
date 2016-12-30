@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Authentication
+Route::get('auth/login', 'Auth\AuthController@CASLogin');
+Route::get('auth/logout', 'Auth\AuthController@Logout');
+Route::get('auth/caslogout', 'Auth\AuthController@CASLogout');
