@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "76036da3b5b55b91dbe1e1affa01bf9e",
+    "content-hash": "4544339870afccf308fa782509c91ac8",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -246,6 +246,60 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "jasig/phpcas",
+            "version": "1.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jasig/phpCAS.git",
+                "reference": "8c74d21630f74278270830fdbdb0c1317bce3f0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jasig/phpCAS/zipball/8c74d21630f74278270830fdbdb0c1317bce3f0a",
+                "reference": "8c74d21630f74278270830fdbdb0c1317bce3f0a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "source/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Joachim Fritschi",
+                    "homepage": "https://wiki.jasig.org/display/~fritschi"
+                },
+                {
+                    "name": "Adam Franco",
+                    "homepage": "https://wiki.jasig.org/display/~adamfranco"
+                }
+            ],
+            "description": "Provides a simple API for authenticating users against a CAS server",
+            "homepage": "https://wiki.jasig.org/display/CASC/phpCAS",
+            "keywords": [
+                "cas",
+                "jasig"
+            ],
+            "time": "2015-11-16T20:44:36+00:00"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1869,6 +1923,50 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "xavrsl/cas",
+            "version": "v1.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/XavRsl/Cas.git",
+                "reference": "a24cfd120deec10f84e0fdfa665db4e81f74b66c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/XavRsl/Cas/zipball/a24cfd120deec10f84e0fdfa665db4e81f74b66c",
+                "reference": "a24cfd120deec10f84e0fdfa665db4e81f74b66c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*|5.*",
+                "jasig/phpcas": "1.3.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Xavrsl\\Cas": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Xavier Roussel",
+                    "email": "roussel.xavier@uvsq.fr"
+                }
+            ],
+            "description": "Add CAS server SSO authentication to Laravel 4 and 5",
+            "keywords": [
+                "SSO",
+                "cas",
+                "laravel",
+                "phpCAS"
+            ],
+            "time": "2016-09-23T11:53:48+00:00"
         }
     ],
     "packages-dev": [
