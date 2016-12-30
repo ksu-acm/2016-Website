@@ -43,7 +43,27 @@
       <label for="email">Email Address</label>
       <input type="email" class="form-control" id="email" name="email" placeholder="{!! $user->email !!}" value="{!! $user->email !!}" required>
     </div>
+    @if($user->officer == 1)
+    <div class="form-group">
+      <label for="title">Officer Title</label>
+      <input type="title" class="form-control" id="title" name="title" placeholder="{!! $user->title !!}" value="{!! $user->title !!}" required>
+    </div>
+    @endif
     <button type="submit" class="btn btn-default">Update Profile</button>
   </form>
+  <div class="permissions">
+    <label>Permissions</label>
+    <ul>
+      @if($user->jofficer == 1)
+      <li>Junior Officer</li>
+      @endif
+      @if($user->officer == 1)
+      <li>Officer</li>
+      @endif
+      @if($user->advisor == 1)
+      <li>Advisor</li>
+      @endif
+    </ul>
+  </div>
 </div>
 @endsection

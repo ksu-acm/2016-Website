@@ -19,16 +19,26 @@ class UserController extends Controller
   public function UpdateProfile(Request $request)
   {
     $this->validate($request, [
-      'firstname' => 'required|string',
-      'lastname' => 'required|string',
-      'email' => 'required|string',
+      'firstname' => 'required|string|max:255',
+      'lastname' => 'required|string|max:255',
+      'email' => 'required|email|max:255|unique:users,email,'.Auth::user()->id,
     ]);
+
+    $title = "";
+
+    if(Auth::user()->officer == 1){
+      $this->validate($request, [
+        'title' => 'required|string|max:255',
+      ]);
+      $title = $request->title;
+    }
 
     \DB::table('users')
     ->where('id', Auth::user()->id)
     ->update(['firstname' => $request->input('firstname'),
               'lastname' => $request->input('lastname'),
               'email' => $request->input('email'),
+              'title' => $title,
               'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
     ]);
 

@@ -27,7 +27,6 @@ hr {
     float: inherit;
 }
 
-#attendance {
-    width: 125px;
-    display: inline-block;
+.permissions {
+  margin-top: 50px;
 }
