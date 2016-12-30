@@ -8,17 +8,10 @@
       <h6 class="dashhead-subtitle">Dashboards</h6>
       <h2 class="dashhead-title">Overview</h2>
     </div>
-
-    <div class="btn-toolbar dashhead-toolbar">
-      <div class="btn-toolbar-item input-with-icon">
-        <input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
-        <span class="icon icon-calendar"></span>
-      </div>
-    </div>
   </div>
 
   <hr class="m-t">
-
+<!--
   <div class="row text-center m-t-lg">
     <div class="col-sm-4 m-b-md">
       <div class="w-lg m-x-auto">
@@ -106,4 +99,5 @@
     </div>
   </div>
 </div>
+-->
 @endsection

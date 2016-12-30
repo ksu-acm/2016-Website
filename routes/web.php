@@ -11,10 +11,19 @@
 |
 */
 
+//Front
 Route::get('/', function (){return view('front/index');});
 Route::get('/events', function (){return view('front/events');});
 Route::get('/officers', function (){return view('front/officers');});
 Route::get('/jrofficers', function (){return view('front/jrofficers');});
+
+//Back
+Route::get('/apps', function (){return view('back/index');});
+
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('/profile', 'UserController@ShowProfile');
+  Route::post('/profile', 'UserController@UpdateProfile');
+});
 
 //Authentication
 Route::get('auth/login', 'Auth\AuthController@CASLogin');

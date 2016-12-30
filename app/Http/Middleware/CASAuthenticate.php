@@ -23,8 +23,8 @@ class CASAuthenticate
                 $user = new User;
                 $user->eid = Cas::user();
                 $user->email = $user->eid."@ksu.edu";
-                $user->first = $user->eid;
-                $user->last = "";
+                $user->firstname = $user->eid;
+                $user->lastname = "";
                 $user->save();
             }
             Auth::login($user);
