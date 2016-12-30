@@ -19,6 +19,8 @@ Route::get('/jrofficers', function (){return view('front/jrofficers');});
 
 //Back
 Route::get('/apps', function (){return view('back/index');});
+//Food
+Route::get('/food', 'FoodController@ShowFood');
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/profile', 'UserController@ShowProfile');

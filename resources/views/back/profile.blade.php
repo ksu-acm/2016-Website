@@ -39,7 +39,7 @@
       <label for="lastname">Last Name</label>
       <input type="text" class="form-control" id="lastname" name="lastname" placeholder="{!! $user->lastname !!}" value="{!! $user->lastname !!}" required>
     </div>
-    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+    <div class="form-group">
       <label for="email">Email Address</label>
       <input type="email" class="form-control" id="email" name="email" placeholder="{!! $user->email !!}" value="{!! $user->email !!}" required>
     </div>
