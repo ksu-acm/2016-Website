@@ -49,6 +49,10 @@
       <input type="title" class="form-control" id="title" name="title" placeholder="{!! $user->title !!}" value="{!! $user->title !!}" required>
     </div>
     @endif
+    <div class="form-group">
+      <label for="bio">Bio</label>
+      <textarea class="form-control" id="bio" name="bio" value="" required><?= $user->bio ?></textarea>
+    </div>
     <button type="submit" class="btn btn-default">Update Profile</button>
   </form>
   <div class="permissions">

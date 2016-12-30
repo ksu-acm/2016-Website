@@ -10,6 +10,19 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
+
+  public function ShowOfficers()
+  {
+    $officers = \DB::table('users')->where('officer', 1)->orWhere('advisor', 1)->get();
+    return view('front/officers', compact('officers'));
+  }
+
+  public function ShowJrOfficers()
+  {
+    $jrofficers = \DB::table('users')->where('jofficer', 1)->get();
+    return view('front/jrofficers', compact('jrofficers'));
+  }
+
   public function ShowProfile()
   {
     $user = \DB::table('users')->where('id', Auth::user()->id)->first();
@@ -22,9 +35,10 @@ class UserController extends Controller
       'firstname' => 'required|string|max:255',
       'lastname' => 'required|string|max:255',
       'email' => 'required|email|max:255|unique:users,email,'.Auth::user()->id,
+      'bio' => 'required|string|max:65535',
     ]);
 
-    $title = "";
+    $title = Auth::user()->title;
 
     if(Auth::user()->officer == 1){
       $this->validate($request, [
@@ -39,6 +53,7 @@ class UserController extends Controller
               'lastname' => $request->input('lastname'),
               'email' => $request->input('email'),
               'title' => $title,
+              'bio' => $request->input('bio'),
               'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
     ]);
 

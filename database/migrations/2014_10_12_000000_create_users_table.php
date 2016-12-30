@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
              $table->string('firstname');
              $table->string('lastname');
              $table->string('title');
+             $table->mediumText('bio');
              $table->boolean('jofficer');
              $table->boolean('officer');
              $table->boolean('advisor');

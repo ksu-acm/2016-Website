@@ -26,6 +26,7 @@ class CASAuthenticate
                 $user->firstname = $user->eid;
                 $user->lastname = "";
                 $user->title = "";
+                $user->bio = "";
                 $user->jofficer = 0;
                 $user->officer = 0;
                 $user->advisor = 0;

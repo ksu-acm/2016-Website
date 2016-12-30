@@ -14,8 +14,8 @@
 //Front
 Route::get('/', function (){return view('front/index');});
 Route::get('/events', function (){return view('front/events');});
-Route::get('/officers', function (){return view('front/officers');});
-Route::get('/jrofficers', function (){return view('front/jrofficers');});
+Route::get('/officers', 'UserController@ShowOfficers');
+Route::get('/jrofficers', 'UserController@ShowJrOfficers');
 
 //Back
 Route::get('/apps', function (){return view('back/index');});

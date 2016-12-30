@@ -9,24 +9,28 @@
     </div>
     <div class="row">
       <div class="col s12 m9 l10">
-        <div class="card hoverable section scrollspy" id="officer">
+      @foreach($jrofficers as $jrofficer)
+        <div class="card hoverable section scrollspy" id="jrofficer{{ $jrofficer->id }}">
           <div class="card-content">
             <div class="row">
               <div class="col s12 m12 l3">
                 <img src="{{ URL::asset('img/default.png') }}" alt="" class="circle responsive-img">
               </div>
               <div class="col s12 m12 l9">
-                <span class="card-title black-text">Junior Officer</span>
+                <span class="card-title black-text"><? echo $jrofficer->firstname." ".$jrofficer->lastname ?></span>
                 <br />
-                <p></p>
+                <p><?= $jrofficer->bio ?></p>
               </div>
             </div>
           </div>
         </div>
+        @endforeach
       </div>
       <div class="col hide-on-small-only m3 l2">
         <ul class="section table-of-contents">
-          <li><a href="#officer">Junior Officer</a></li>
+          @foreach($jrofficers as $jrofficer)
+          <li><a href="#jrofficer{{ $jrofficer->id }}"><?= $jrofficer->firstname." ".$jrofficer->lastname ?></a></li>
+          @endforeach
         </ul>
       </div>
     </div>
