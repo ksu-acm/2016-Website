@@ -99,7 +99,7 @@ class FoodController extends Controller
                       'avgSlicesPerPerson' => $updatedAvgSlicesPerPerson,
                       'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
           ]);
-          return $this->ShowFood()->with('success', 'Updated the event!');
+          return redirect()->action('FoodController@ShowFood')->with('success', 'Updated '.$eventName.'!');
         }
         \DB::table('pizza')
           ->insert(['eventName' => $eventName,
@@ -146,17 +146,37 @@ class FoodController extends Controller
                     'avgSlicesPerPerson' => $updatedAvgSlicesPerPerson,
                     'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
         ]);
-        return $this->ShowFood()->with('success', 'Added an event!');
+        return redirect()->action('FoodController@ShowFood')->with('success', 'Added '.$eventName.'!');
       }
       return $this->PermError();
     }
 
     public function ShowOrder()
     {
-        return view('back/order');
+      return view('back/order');
     }
 
     public function Order(Request $request)
     {
+      $this->validate($request, [
+        'attendees' => 'required',
+      ]);
+
+      $currentTotals = \DB::table('pizzaTotals')->where('id', 1)->first();
+      $attendees = $request->input('attendees');
+
+      $pizzas = ceil((($currentTotals->avgSlicesPerPerson * $attendees) - $currentTotals->avgLeftoverSlices) / 8);
+      $cheese = round($pizzas * 0.4);
+      $pepperoni = round($pizzas * 0.4);
+      $sausage = round($pizzas * 0.2);
+
+      \DB::table('pizzaTotals')
+        ->where('id', 1)
+        ->update(['orders' => $currentTotals->orders + 1,
+                  'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+      ]);
+
+      $order = 'For '.$attendees.' people you should order about '.$pizzas.' pizzas. '.$cheese.' Cheese, '.$pepperoni.' Pepperoni, and '.$sausage.' Sausage';
+      return redirect()->action('FoodController@ShowOrder')->with('order', $order);
     }
 }
