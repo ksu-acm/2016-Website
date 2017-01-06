@@ -101,6 +101,7 @@
         <tr>
           <th>Event</th>
           <th>Date</th>
+          <th>Attenance</th>
           <th>Pizzas</th>
           <th>Slices per Person</th>
           <th>Leftover Slices</th>
@@ -119,6 +120,7 @@
             @endif
           </td>
           <td>{{ date('m/d/y', strtotime($event->eventDate)) }}</td>
+          <td>{{ $event->attendees }}</td>
           <td>{{ $event->pizzasOrdered }}</td>
           <td>{{ ceil($event->avgSlicesPerPerson) }}</td>
           <td>{{ $event->leftoverSlices }}</td>
