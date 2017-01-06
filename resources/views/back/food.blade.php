@@ -120,7 +120,7 @@
           </td>
           <td>{{ date('m/d/y', strtotime($event->eventDate)) }}</td>
           <td>{{ $event->pizzasOrdered }}</td>
-          <td>{{ $event->avgSlicesPerPerson }}</td>
+          <td>{{ ceil($event->avgSlicesPerPerson) }}</td>
           <td>{{ $event->leftoverSlices }}</td>
         </tr>
         @endforeach

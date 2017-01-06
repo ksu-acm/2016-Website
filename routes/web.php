@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('/event/{id?}', 'FoodController@ShowEvent');
   Route::post('/event/{id}', 'FoodController@UpdateEvent');
+  
+  Route::post('/delete/event/{id}', 'FoodController@DeleteEvent');
 });
 
 //Authentication
