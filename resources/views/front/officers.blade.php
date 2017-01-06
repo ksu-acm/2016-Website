@@ -17,9 +17,9 @@
                 <img src="{{ URL::asset('img/default.png') }}" alt="" class="circle responsive-img">
               </div>
               <div class="col s12 m12 l9">
-                <span class="card-title black-text"><? echo $officer->firstname." ".$officer->lastname." | "; if($officer->advisor == 1){echo "Advisor";}else{echo $officer->title;} ?></span>
+                <span class="card-title black-text">{{ $officer->firstname }} {{ $officer->lastname }} | @if($officer->advisor == 1) Advisor @else {{ $officer->title }} @endif</span>
                 <br />
-                <p><?= $officer->bio ?></p>
+                <p>{{ $officer->bio }}</p>
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
       <div class="col hide-on-small-only m3 l2">
         <ul class="section table-of-contents">
           @foreach($officers as $officer)
-          <li><a href="#officer{{ $officer->id }}"><?= $officer->firstname." ".$officer->lastname ?></a></li>
+          <li><a href="#officer{{ $officer->id }}">{{ $officer->firstname }} {{ $officer->lastname }}</a></li>
           @endforeach
         </ul>
       </div>

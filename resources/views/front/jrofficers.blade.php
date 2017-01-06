@@ -17,9 +17,9 @@
                 <img src="{{ URL::asset('img/default.png') }}" alt="" class="circle responsive-img">
               </div>
               <div class="col s12 m12 l9">
-                <span class="card-title black-text"><? echo $jrofficer->firstname." ".$jrofficer->lastname ?></span>
+                <span class="card-title black-text">{{ $jrofficer->firstname }} {{ $jrofficer->lastname }}</span>
                 <br />
-                <p><?= $jrofficer->bio ?></p>
+                <p>{{ $jrofficer->bio }}</p>
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
       <div class="col hide-on-small-only m3 l2">
         <ul class="section table-of-contents">
           @foreach($jrofficers as $jrofficer)
-          <li><a href="#jrofficer{{ $jrofficer->id }}"><?= $jrofficer->firstname." ".$jrofficer->lastname ?></a></li>
+          <li><a href="#jrofficer{{ $jrofficer->id }}">{{ $jrofficer->firstname }} {{ $jrofficer->lastname }}</a></li>
           @endforeach
         </ul>
       </div>
