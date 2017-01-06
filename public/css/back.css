@@ -19,6 +19,10 @@ hr {
     margin-bottom: 30px;
 }
 
+a:link, a:visited, a:active, a:hover {
+  text-decoration: none;
+}
+
 .navbar-fixed-top, .navbar-static-top {
     border-bottom: 0;
 }
@@ -29,4 +33,20 @@ hr {
 
 .permissions {
   margin-top: 50px;
+}
+
+.order {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .form-half {
+    display: inline-block;
+    width: 47.18%;
+  }
+
+  .form-half:nth-child(even) {
+    margin-right: 5%;
+  }
 }

@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
-
   public function ShowOfficers()
   {
     $officers = \DB::table('users')->where('officer', 1)->orWhere('advisor', 1)->get();

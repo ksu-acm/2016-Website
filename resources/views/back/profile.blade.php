@@ -1,5 +1,5 @@
 @extends('layouts.back')
-@section('title', 'My Profile')
+@section('title', 'Profile')
 
 @section('content')
 <div class="col-sm-9 content">

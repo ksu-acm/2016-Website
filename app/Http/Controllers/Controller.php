@@ -10,4 +10,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function PermError()
+    {
+      return view('back/index')->withErrors("You don't have privileges for that!");
+    }
 }

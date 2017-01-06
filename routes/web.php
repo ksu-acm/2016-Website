@@ -19,12 +19,15 @@ Route::get('/jrofficers', 'UserController@ShowJrOfficers');
 
 //Back
 Route::get('/apps', function (){return view('back/index');});
-//Food
 Route::get('/food', 'FoodController@ShowFood');
+Route::get('/order', 'FoodController@ShowOrder');
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/profile', 'UserController@ShowProfile');
   Route::post('/profile', 'UserController@UpdateProfile');
+
+  Route::get('/event/{id?}', 'FoodController@ShowEvent');
+  Route::post('/event/{id}', 'FoodController@UpdateEvent');
 });
 
 //Authentication
