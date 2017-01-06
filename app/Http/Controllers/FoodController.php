@@ -220,6 +220,14 @@ class FoodController extends Controller
       $pepperoni = round($pizzas * 0.4);
       $sausage = round($pizzas * 0.2);
 
+      if ($attendees == 0){
+        return redirect()->action("FoodController@ShowOrder")->withErrors("You don't want any pizza?");
+      }
+
+      if ($pizza = 0){
+        $pizza = 1;
+      }
+
       \DB::table("pizzaTotals")
         ->where("id", 1)
         ->update(["orders" => $currentTotals->orders + 1,
