@@ -76,7 +76,7 @@
   <div class="flextable table-actions">
   <div class="flextable-item flextable-primary">
     <div class="btn-toolbar-item input-with-icon">
-      <input type="text" class="form-control input-block" placeholder="Search events">
+      <input type="text" class="form-control input-block" id="filter" placeholder="Search events">
       <span class="icon icon-magnifying-glass"></span>
     </div>
   </div>
@@ -96,7 +96,7 @@
 </div>
   <div class="table-full">
   <div class="table-responsive">
-    <table class="table" data-sort="table">
+    <table class="table table-striped" data-sort="table">
       <thead>
         <tr>
           <th>Event</th>
@@ -106,7 +106,7 @@
           <th>Leftover Slices</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="searchable">
         @foreach($events as $event)
         <tr>
           <td>
@@ -128,4 +128,20 @@
     </table>
   </div>
 </div>
+@endsection
+
+@section('footer')
+<script>
+$(document).ready(function () {
+    (function ($) {
+        $('#filter').keyup(function () {
+            var rex = new RegExp($(this).val(), 'i');
+            $('.searchable tr').hide();
+            $('.searchable tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+        })
+    }(jQuery));
+});
+</script>
 @endsection
