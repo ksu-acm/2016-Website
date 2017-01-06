@@ -71,7 +71,7 @@
   <? if($event != ""){ ?>
     <form method="POST" action="{{ url('delete/event/'.$id) }}">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <button type="submit" class="btn btn-danger delete" onclick="return confirm('Are you sure you want to delete <?= $event->eventName ?>?');">Delete Event</button>
+      <button type="submit" class="btn btn-danger delete" onclick="return confirm('Are you sure you want to delete <? if($event != ""){echo $event->eventName;} ?>?');">Delete Event</button>
     </form>
   <? ;} ?>
 @endsection
