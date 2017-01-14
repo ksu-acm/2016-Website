@@ -35,26 +35,29 @@ class UserController extends Controller
       'lastname' => 'required|string|max:255',
       'email' => 'required|email|max:255|unique:users,email,'.Auth::user()->id,
       'bio' => 'required|string|max:65535',
+      'title' => 'string|max:255',
+      'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
     ]);
 
     $title = Auth::user()->title;
-
     if(Auth::user()->officer == 1){
-      $this->validate($request, [
-        'title' => 'required|string|max:255',
-      ]);
       $title = $request->title;
     }
 
-    \DB::table('users')
-    ->where('id', Auth::user()->id)
-    ->update(['firstname' => $request->input('firstname'),
-              'lastname' => $request->input('lastname'),
-              'email' => $request->input('email'),
-              'title' => $title,
-              'bio' => $request->input('bio'),
-              'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-    ]);
+    $picture = Auth::user()->picture;
+    if($request->picture != ""){
+      $picture = uniqid().'.jpg';
+      \Image::make($request->file('picture'))->resize(200, 200)->encode('jpg')->save(public_path().'/storage/img/'.$picture);
+    }
+
+    $user = User::where('id', Auth::user()->id)->first();
+    $user->firstname = $request->input('firstname');
+    $user->lastname = $request->input('lastname');
+    $user->email = $request->input('email');
+    $user->title = $title;
+    $user->bio = $request->input('bio');
+    $user->picture = $picture;
+    $user->save();
 
     return redirect()->action('UserController@ShowProfile')->with('success', 'Your profile has been updated!');
   }

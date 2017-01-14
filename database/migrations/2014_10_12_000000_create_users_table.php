@@ -19,14 +19,16 @@ class CreateUsersTable extends Migration
              $table->string('email')->unique();
              $table->string('firstname');
              $table->string('lastname');
-             $table->string('title');
+             $table->string('title')->default('');
              $table->mediumText('bio');
-             $table->boolean('jofficer');
-             $table->boolean('officer');
-             $table->boolean('advisor');
+             $table->string('picture')->default('');
+             $table->boolean('jofficer')->default(0);
+             $table->boolean('officer')->default(0);
+             $table->boolean('advisor')->default(0);
              $table->rememberToken();
              $table->timestamps();
          });
+         File::makeDirectory(public_path().'/storage/img/', 0777, true);
      }
 
     /**
@@ -37,5 +39,6 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::drop('users');
+        File::deleteDirectory(public_path().'/storage');
     }
 }

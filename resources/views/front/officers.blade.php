@@ -14,7 +14,11 @@
           <div class="card-content">
             <div class="row">
               <div class="col s12 m12 l3">
-                <img src="{{ URL::asset('img/default.png') }}" alt="" class="circle responsive-img">
+                @if($officer->picture == "")
+                  <img src="{{ URL::asset('img/default.png') }}" alt="" class="circle responsive-img">
+                @else
+                  <img src="{{ url('/storage/img/'.$officer->picture) }}" alt="" class="circle responsive-img">
+                @endif
               </div>
               <div class="col s12 m12 l9">
                 <span class="card-title black-text">{{ $officer->firstname }} {{ $officer->lastname }} | @if($officer->advisor == 1) Advisor @else {{ $officer->title }} @endif</span>

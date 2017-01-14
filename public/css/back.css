@@ -3,13 +3,6 @@ body {
     padding-bottom: 20px;
 }
 
-@media (min-width: 768px) {
-    body {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-}
-
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-top: 0;
 }
@@ -31,10 +24,6 @@ a:link, a:visited, a:active, a:hover {
     float: inherit;
 }
 
-.permissions {
-  margin-top: 50px;
-}
-
 .order {
   display: block;
   margin: 0 auto;
@@ -46,9 +35,15 @@ a:link, a:visited, a:active, a:hover {
 }
 
 @media (min-width: 768px) {
+  body {
+      padding-top: 50px;
+      padding-bottom: 50px;
+  }
+
   .form-half {
     display: inline-block;
     width: 47.18%;
+    vertical-align: top;
   }
 
   .form-half:nth-child(even) {

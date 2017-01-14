@@ -30,8 +30,6 @@
                 <button type="submit" class="btn-link"><span class="icon icon-magnifying-glass"></span></button>
               </form>
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="{{ url('/') }}">Home</a></li>
-
                 <li class="nav-header">Dashboards</li>
                 @if (Request::is('/apps'))
                   <li class="active"><a href="{{ url('/apps') }}">Overview</a></li>

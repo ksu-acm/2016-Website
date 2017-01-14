@@ -29,7 +29,7 @@
 
   <hr class="m-t">
 
-  <form method="POST" action="{{ url('/profile') }}">
+  <form method="POST" action="{{ url('/profile') }}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
       <label for="firstname">First Name</label>
@@ -53,21 +53,30 @@
       <label for="bio">Bio</label>
       <textarea class="form-control" id="bio" name="bio" value="" required><?= $user->bio ?></textarea>
     </div>
+    <div class="form-group form-half">
+      <label for="picture">Profile Picture</label>
+      <input type="file" name="picture" id="picture">
+      <p>Max File Size: 2MB<br />
+        Your image will be resized to 200 x 200 pixels.</p>
+      @if($user->picture != "")
+        <img src="{{ url('/storage/img/'.$user->picture) }}" />
+      @endif
+    </div>
+    <div class="form-group form-half">
+      <label>Permissions</label>
+      <ul>
+        @if($user->jofficer == 1)
+        <li>Junior Officer</li>
+        @endif
+        @if($user->officer == 1)
+        <li>Officer</li>
+        @endif
+        @if($user->advisor == 1)
+        <li>Advisor</li>
+        @endif
+      </ul>
+    </div>
     <button type="submit" class="btn btn-default">Update Profile</button>
   </form>
-  <div class="permissions">
-    <label>Permissions</label>
-    <ul>
-      @if($user->jofficer == 1)
-      <li>Junior Officer</li>
-      @endif
-      @if($user->officer == 1)
-      <li>Officer</li>
-      @endif
-      @if($user->advisor == 1)
-      <li>Advisor</li>
-      @endif
-    </ul>
-  </div>
 </div>
 @endsection
