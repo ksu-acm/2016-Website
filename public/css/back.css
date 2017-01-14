@@ -34,6 +34,10 @@ a:link, a:visited, a:active, a:hover {
   margin: 15px auto;
 }
 
+.permissions {
+  vertical-align: top;
+}
+
 @media (min-width: 768px) {
   body {
       padding-top: 50px;
@@ -43,7 +47,6 @@ a:link, a:visited, a:active, a:hover {
   .form-half {
     display: inline-block;
     width: 47.18%;
-    vertical-align: top;
   }
 
   .form-half:nth-child(even) {

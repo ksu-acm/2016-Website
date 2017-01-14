@@ -62,7 +62,7 @@
         <img src="{{ url('/storage/img/'.$user->picture) }}" />
       @endif
     </div>
-    <div class="form-group form-half">
+    <div class="form-group form-half permissions">
       <label>Permissions</label>
       <ul>
         @if($user->jofficer == 1)
