@@ -25,10 +25,12 @@
               <a class="sidebar-brand img-responsive" href="{{ url('/') }}"><img src="{{ URL::asset('img/acm_flat.svg') }}" /></a>
             </div>
             <div class="collapse nav-toggleable-sm" id="nav-toggleable-sm">
+              <!--
               <form class="sidebar-form">
                 <input class="form-control" type="text" placeholder="Search...">
                 <button type="submit" class="btn-link"><span class="icon icon-magnifying-glass"></span></button>
               </form>
+            -->
               <ul class="nav nav-pills nav-stacked">
                 <li class="nav-header">Dashboards</li>
                 @if (Request::is('apps'))
