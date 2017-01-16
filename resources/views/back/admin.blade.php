@@ -48,6 +48,7 @@
           <th>Jr. Officer</th>
           <th>Officer</th>
           <th>Advisor</th>
+          <th>Admin</th>
         </tr>
       </thead>
       <tbody class="searchable">
@@ -59,6 +60,7 @@
           <td>@if($user->jofficer == 1)True @else False @endif</td>
           <td>@if($user->officer == 1)True @else False @endif</td>
           <td>@if($user->advisor == 1)True @else False @endif</td>
+          <td>@if($user->admin == 1)True @else False @endif</td>
         </tr>
         @endforeach
       </tbody>
