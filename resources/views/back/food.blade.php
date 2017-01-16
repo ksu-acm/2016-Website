@@ -96,7 +96,7 @@
 </div>
   <div class="table-full">
   <div class="table-responsive">
-    <table class="table table-striped" data-sort="table">
+    <table class="table" data-sort="pizza">
       <thead>
         <tr>
           <th>Event</th>

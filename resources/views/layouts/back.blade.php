@@ -31,12 +31,12 @@
               </form>
               <ul class="nav nav-pills nav-stacked">
                 <li class="nav-header">Dashboards</li>
-                @if (Request::is('/apps'))
+                @if (Request::is('apps'))
                   <li class="active"><a href="{{ url('/apps') }}">Overview</a></li>
                 @else
                   <li><a href="{{ url('/apps') }}">Overview</a></li>
                 @endif
-                @if (Request::is('/food'))
+                @if (Request::is('food'))
                   <li class="active"><a href="{{ url('/food') }}">Food Analytics</a></li>
                 @else
                   <li><a href="{{ url('/food') }}">Food Analytics</a></li>
@@ -44,7 +44,14 @@
 
                 <li class="nav-header">My Profile</li>
                 @if(Auth::check())
-                  @if (Request::is('/profile'))
+                  @if (Auth::user()->admin == 1)
+                    @if (Request::is('admin'))
+                      <li class="active"><a href="{{ url('/admin') }}">Administration</a></li>
+                      @else
+                      <li><a href="{{ url('/admin') }}">Administration</a></li>
+                    @endif
+                  @endif
+                  @if (Request::is('profile'))
                     <li class="active"><a href="{{ url('/profile') }}">My Profile</a></li>
                   @else
                     <li><a href="{{ url('/profile') }}">My Profile</a></li>

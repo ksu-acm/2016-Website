@@ -38,6 +38,15 @@ a:link, a:visited, a:active, a:hover {
   vertical-align: top;
 }
 
+.no-bullets {
+  list-style: none;
+}
+
+li input[type=checkbox], li input[type=radio] {
+  margin-right: 15px;
+  vertical-align: top;
+}
+
 @media (min-width: 768px) {
   body {
       padding-top: 50px;

@@ -24,16 +24,19 @@ Route::get('/order', 'FoodController@ShowOrder');
 Route::post('/order', 'FoodController@Order');
 
 Route::group(['middleware' => 'auth'], function () {
-  Route::get('/profile', 'UserController@ShowProfile');
-  Route::post('/profile', 'UserController@UpdateProfile');
+  Route::get('/profile/{eid?}', 'UserController@ShowProfile');
+  Route::post('/profile/{eid}', 'UserController@UpdateProfile');
 
   Route::get('/event/{id?}', 'FoodController@ShowEvent');
   Route::post('/event/{id}', 'FoodController@UpdateEvent');
 
   Route::post('/delete/event/{id}', 'FoodController@DeleteEvent');
+
+  Route::get('/admin', 'AdminController@Admin');
 });
 
 //Authentication
+Route::get('/login', 'Auth\AuthController@CASLogin');
 Route::get('auth/login', 'Auth\AuthController@CASLogin');
 Route::get('auth/logout', 'Auth\AuthController@Logout');
 Route::get('auth/caslogout', 'Auth\AuthController@CASLogout');

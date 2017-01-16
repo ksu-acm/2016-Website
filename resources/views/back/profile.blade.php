@@ -6,9 +6,8 @@
   <div class="dashhead">
     <div class="dashhead-titles">
       <h6 class="dashhead-subtitle">My Profile</h6>
-      <h2 class="dashhead-title">My Profile</h2>
+      <h2 class="dashhead-title">{{ $user->firstname }} {{ $user->lastname }}</h2>
     </div>
-
     @if (count($errors) > 0)
       <div class="alert alert-danger" role="alert">
         <strong>Error!</strong>
@@ -19,17 +18,19 @@
         </ul>
       </div>
     @endif
-
+    @if($user->id != Auth::user()->id)
+      <div class="alert alert-info" role="alert">
+        Editing profile for {{ $user->firstname }} {{ $user->lastname }}.
+      </div>
+    @endif
     @if(Session::has('success'))
       <div class="alert alert-success" role="alert">
         <strong>Success!</strong> {{ Session::get('success') }}
       </div>
     @endif
   </div>
-
   <hr class="m-t">
-
-  <form method="POST" action="{{ url('/profile') }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ url('/profile/'.$user->eid) }}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
       <label for="firstname">First Name</label>
@@ -51,7 +52,7 @@
     @endif
     <div class="form-group">
       <label for="bio">Bio</label>
-      <textarea class="form-control" id="bio" name="bio" value="" required><?= $user->bio ?></textarea>
+      <textarea class="form-control" id="bio" name="bio" value=""><?= $user->bio ?></textarea>
     </div>
     <div class="form-group form-half">
       <label for="picture">Profile Picture</label>
@@ -64,6 +65,14 @@
     </div>
     <div class="form-group form-half permissions">
       <label>Permissions</label>
+      @if(Auth::user()->admin == 1)
+      <ul class="no-bullets">
+        <li><input type="checkbox" name="jrofficer" <?if($user->jofficer==1)echo'checked';?>></input></input></input>Junior Officer</li>
+        <li><input type="checkbox" name="officer" <?if($user->officer==1)echo'checked';?>></input>Officer</li>
+        <li><input type="checkbox" name="advisor" <?if($user->advisor==1)echo'checked';?>></input>Advisor</li>
+        <li><input type="checkbox" name="admin" <?if($user->admin==1)echo'checked';?>></input>Administrator</li>
+      </ul>
+      @else
       <ul>
         @if($user->jofficer == 1)
         <li>Junior Officer</li>
@@ -74,7 +83,11 @@
         @if($user->advisor == 1)
         <li>Advisor</li>
         @endif
+        @if($user->admin == 1)
+        <li>Administrator</li>
+        @endif
       </ul>
+      @endif
     </div>
     <button type="submit" class="btn btn-default">Update Profile</button>
   </form>
