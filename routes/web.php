@@ -12,13 +12,13 @@
 */
 
 //Front
-Route::get('/', function (){return view('front/index');});
-Route::get('/events', function (){return view('front/events');});
-Route::get('/officers', 'UserController@ShowOfficers');
-Route::get('/jrofficers', 'UserController@ShowJrOfficers');
+Route::get('/', 'FrontController@Index');
+Route::get('/events', 'FrontController@Events');
+Route::get('/officers', 'FrontController@Officers');
+Route::get('/jrofficers', 'FrontController@JrOfficers');
 
 //Back
-Route::get('/apps', function (){return view('back/index');});
+Route::get('/apps', 'BackController@Index');
 Route::get('/food', 'FoodController@ShowFood');
 Route::get('/order', 'FoodController@ShowOrder');
 Route::post('/order', 'FoodController@Order');
@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('/event/{id?}', 'FoodController@ShowEvent');
   Route::post('/event/{id}', 'FoodController@UpdateEvent');
-  
+
   Route::post('/delete/event/{id}', 'FoodController@DeleteEvent');
 });
 

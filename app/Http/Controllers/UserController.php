@@ -10,18 +10,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
-  public function ShowOfficers()
-  {
-    $officers = \DB::table('users')->where('officer', 1)->orWhere('advisor', 1)->get();
-    return view('front/officers', compact('officers'));
-  }
-
-  public function ShowJrOfficers()
-  {
-    $jrofficers = \DB::table('users')->where('jofficer', 1)->get();
-    return view('front/jrofficers', compact('jrofficers'));
-  }
-
   public function ShowProfile()
   {
     $user = \DB::table('users')->where('id', Auth::user()->id)->first();
