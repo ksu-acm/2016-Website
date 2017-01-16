@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
              $table->boolean('jofficer')->default(0);
              $table->boolean('officer')->default(0);
              $table->boolean('advisor')->default(0);
+             $table->boolean('admin')->default(0);
              $table->integer('updated_by')->default(0);
              $table->rememberToken();
              $table->timestamps();
