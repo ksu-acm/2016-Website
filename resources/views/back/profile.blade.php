@@ -67,10 +67,10 @@
       <label>Permissions</label>
       @if(Auth::user()->admin == 1)
       <ul class="no-bullets">
-        <li><input type="checkbox" name="jrofficer" <?if($user->jofficer==1)echo'checked';?>></input></input></input>Junior Officer</li>
-        <li><input type="checkbox" name="officer" <?if($user->officer==1)echo'checked';?>></input>Officer</li>
-        <li><input type="checkbox" name="advisor" <?if($user->advisor==1)echo'checked';?>></input>Advisor</li>
-        <li><input type="checkbox" name="admin" <?if($user->admin==1)echo'checked';?>></input>Administrator</li>
+        <li><input type="checkbox" name="jrofficer" <?php if($user->jofficer == true){echo "checked";}?>></input></input></input>Junior Officer</li>
+        <li><input type="checkbox" name="officer" <?php if($user->officer == true){echo "checked";}?>></input>Officer</li>
+        <li><input type="checkbox" name="advisor" <?php if($user->advisor == true){echo "checked";}?>></input>Advisor</li>
+        <li><input type="checkbox" name="admin" <?php if($user->admin == true){echo "checked";}?>></input>Administrator</li>
       </ul>
       @else
       <ul>
