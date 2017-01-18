@@ -17,7 +17,7 @@
                 @if($jrofficer->picture == "")
                   <img src="{{ URL::asset('img/default.png') }}" alt="" class="circle responsive-img">
                 @else
-                  <img src="{{ url('/storage/img/'.$officer->picture) }}" alt="" class="circle responsive-img">
+                  <img src="{{ url('/storage/img/'.$jrofficer->picture) }}" alt="" class="circle responsive-img">
                 @endif
               </div>
               <div class="col s12 m12 l9">
