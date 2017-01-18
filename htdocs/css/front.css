@@ -171,3 +171,9 @@ footer.page-footer .footer-copyright {
 .eventList li {
   margin-bottom: 25px;
 }
+
+@media (min-width: 993px) and (max-width: 1050px) {
+  .brand-logo {
+    margin-left: -90px;
+  }
+}
