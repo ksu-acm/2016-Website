@@ -28,18 +28,18 @@
         <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
         <li><a href="{{ url('/apps') }}">Apps</a></li>
       </ul>
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="{{ url('/') }}">Home</a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdownm" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
-        <li><a href="{{ url('/events') }}">Events</a></li>
-        <li><a href="https://orgsync.com/86744/chapter" target="_blank">OrgSync</a></li>
-        <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
-        <li><a href="{{ url('/apps') }}">Apps</a></li>
-      </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-</div>
+  </div>
+  <ul id="nav-mobile" class="side-nav">
+    <li><a href="{{ url('/') }}">Home</a></li>
+    <li><a class="dropdown-button" href="#!" data-activates="dropdownm" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
+    <li><a href="{{ url('/events') }}">Events</a></li>
+    <li><a href="https://orgsync.com/86744/chapter" target="_blank">OrgSync</a></li>
+    <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
+    <li><a href="{{ url('/apps') }}">Apps</a></li>
+  </ul>
   <ul id="dropdown" class="dropdown-content collection">
     <li><a href="{{ url('/officers') }}">Officers</a></li>
     <li><a href="{{ url('/jrofficers') }}">Junior Officers</a></li>
