@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="The official website for the K-State chapter of the Association for Computing Machinery.">
+  <meta name="author" content="Alex Todd">
+  <title>K-State ACM</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <div class="navbar-fixed">
+  <nav role="navigation">
+    <div class="nav-wrapper container">
+      <a href="index.html" class="brand-logo left"><img src="img/acm.svg" />K-State ACM</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="https://orgsync.com/86744/chapter" target="_blank">OrgSync</a></li>
+        <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdownm" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="https://orgsync.com/86744/chapter" target="_blank">OrgSync</a></li>
+        <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</div>
+  <ul id="dropdown" class="dropdown-content collection">
+    <li><a href="officers.html">Officers</a></li>
+    <li><a href="jofficers.html">Junior Officers</a></li>
+  </ul>
+  <ul id="dropdownm" class="dropdown-content collection">
+    <li><a href="officers.html">Officers</a></li>
+    <li><a href="jofficers.html">Junior Officers</a></li>
+  </ul>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="parallax"><img src="img/bg/home.png" alt="Unsplashed background img 1"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <h1 class="header center grey-text text-darken-3">Welcome!</h1>
+        <div class="social">
+          <a href="https://www.facebook.com/kstateacm" target="_blank"><img src="img/facebookc.svg" /></a>
+          <a href="https://twitter.com/ksuacm" target="_blank"><img src="img/twitterc.svg" /></a>
+        </div>
+        <p class="col s12">The ACM is a professional organization made up mostly of Computer and Information Science and Electrical and Computer Engineering majors. Our focus is giving students a chance to interact with their peers and faculty while developing professional
+          skills for the future. Those with memberships to the national organization earn many benefits, including access to on-line textbooks, articles and subscriptions, digital courses, and much more. If you want to know more or join the ACM visit
+          <a href="http://www.acm.org/" target="_blank">www.acm.org</a>. You don't need to join the national organization to be part of the KSU Chapter. Just come to one of our meetings, or you can email any of the officers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rss" data-htmlfromrss="https://orgsync.com/86744/news_posts/feed"></div>
+
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        ©2016 K-State ACM
+        <div class="fsocial">
+          <a href="https://www.facebook.com/kstateacm" target="_blank"><img src="img/facebookw.svg" /></a>
+          <a href="https://twitter.com/ksuacm" target="_blank"><img src="img/twitterw.svg" /></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript" src="js/htmlfromrss.js"></script>
+  <script>
+  $(document).ready(function(){
+      $(".rss").htmlfromrss(
+          limit = 10
+      );
+  });
+  </script>
+</body>
+
+</html>
