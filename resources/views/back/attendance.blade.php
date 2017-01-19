@@ -26,7 +26,7 @@
     @endif
   </div>
   <div class="hr-divider m-t-md m-b">
-    <h3 class="hr-divider-content hr-divider-heading">Attendance</h3>
+    <h3 class="hr-divider-content hr-divider-heading">Events</h3>
   </div>
 
   <div class="flextable table-actions">
