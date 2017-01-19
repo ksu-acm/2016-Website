@@ -19,7 +19,8 @@ class EventController extends Controller
     $event = \DB::table('events')->where('EventID', $EventID)->first();
     if ($EventID != null){
       $events = \DB::table('events')->get();
-      return view('back/OfficerEvent', compact('events', 'event'));
+      $users = \DB::table('users')->get();
+      return view('back/OfficerEvent', compact('events', 'event', 'users'));
     }
     return redirect()->action('EventController@Events')->withErrors('Event not found.');
   }

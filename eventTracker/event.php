@@ -46,7 +46,7 @@ if ($json['meta']['status'] == "200") {
                 if ($db->query($sql) === TRUE) {
                     echo "Success";
                 } else {
-                    echo $sql;
+                    echo "Failed or already in DB";
                 }
             }
         }

@@ -46,7 +46,7 @@
                 @if (Request::is('Attendance'))
                   <li class="active"><a href="{{ url('/attendance') }}">Attendance</a></li>
                 @else
-                  <li><a href="{{ url('/attendance') }}">Attedance</a></li>
+                  <li><a href="{{ url('/attendance') }}">Attendance</a></li>
                 @endif
 
                 <li class="nav-header">My Profile</li>

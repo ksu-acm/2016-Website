@@ -54,7 +54,7 @@
         <tr>
           <td><a href="{{ url('/attendance/'.$event->EventID) }}">{{ $event->EventName }}</a></td>
           <td>{{ $event->EventCategory }}</td>
-          <td>{{ date("F j, Y", strtotime($event->StartTime))}}
+          <td>{{ date("F j, Y", strtotime($event->StartTime))}}</td>
           <td>{{ date("g:i a", strtotime($event->StartTime)) }}</td>
           <td>{{ date("g:i a", strtotime($event->EndTime)) }}</td>
         </tr>
