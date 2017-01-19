@@ -25,12 +25,24 @@ if ($json['meta']['status'] == "200") {
             $categoryName = $event['category']['name'];
             $title        = $event['title'];
             foreach ($event['dates'] as $date) {
-                $starts_at = str_replace("T", " ", str_replace("Z", "", $date['starts_at']));
-                $ends_at   = str_replace("T", " ", str_replace("Z", "", $date['ends_at']));
+                $starts_at = $date['starts_at'];
+                $ends_at   = $date['ends_at'];
                 $eventID   = $date['id'];
+
+                date_default_timezone_set('America/Chicago');
+
+                $start     = strtotime($starts_at);
+                $end       = strtotime($ends_at);
+                $sdt       = new DateTime("@$start");
+                $edt       = new DateTime("@$end");
+                $tz        = new DateTimeZone('America/Chicago');
+
+                $sdt->setTimezone($tz);
+                $edt->setTimezone($tz);
+
                 $sql       = 'INSERT INTO events ' . '(`Event Name`, `Event ID`, `Event Category`, `Start Time`, `End Time`) '
-                             . 'VALUES ( \'' . $title . '\' , \'' . $eventID . '\' , \'' . $categoryName . '\' , \'' . $starts_at .
-                             '\',\' ' . $ends_at . '\' )';
+                             . 'VALUES ( \'' . $title . '\' , \'' . $eventID . '\' , \'' . $categoryName . '\' , \'' . $sdt->format('Y-m-d H:i:s') .
+                             '\',\' ' . $edt->format('Y-m-d H:i:s') . '\' )';
                 if ($db->query($sql) === TRUE) {
                     echo "Success";
                 } else {
