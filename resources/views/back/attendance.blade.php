@@ -52,7 +52,7 @@
       <tbody class="searchable">
         @foreach($events as $event)
         <tr>
-          <td><a href="{{ url('/events/'.$event->EventID) }}">{{ $event->EventName }}</a></td>
+          <td><a href="{{ url('/attendance/'.$event->EventID) }}">{{ $event->EventName }}</a></td>
           <td>{{ $event->EventCategory }}</td>
           <td>{{ date("F j, Y", strtotime($event->StartTime))}}
           <td>{{ date("g:i a", strtotime($event->StartTime)) }}</td>

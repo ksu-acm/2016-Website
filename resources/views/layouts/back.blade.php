@@ -43,6 +43,11 @@
                 @else
                   <li><a href="{{ url('/food') }}">Food Analytics</a></li>
                 @endif
+                @if (Request::is('Attendance'))
+                  <li class="active"><a href="{{ url('/attendance') }}">Attendance</a></li>
+                @else
+                  <li><a href="{{ url('/attendance') }}">Attedance</a></li>
+                @endif
 
                 <li class="nav-header">My Profile</li>
                 @if(Auth::check())
