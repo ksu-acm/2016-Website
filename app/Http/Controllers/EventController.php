@@ -25,12 +25,30 @@ class EventController extends Controller
     return redirect()->action('EventController@Events')->withErrors('Event not found.');
   }
 
-  public function EditEvent()
+  public function EditEvent($eid = null, Request $request)
   {
-    if(Auth::user()->admin == 1){
-      $users = \DB::table('events')->get();
-      return view('back/events', compact('events'));
-    }
-    return $this->PermError();
+    //if($eid != null && Auth::user()->admin != 1){
+    //  return $this->PermError();
+    //}
+
+    //if($eid == null){
+    //  $eid = Auth::user()->eid;
+    //}
+
+    //$user = User::where('eid', $eid)->first();
+
+
+    //$user->firstname = $request->input('firstname');
+    //$user->lastname = $request->input('lastname');
+    //$user->email = $request->input('email');
+
+    //$user->updated_by = Auth::user()->id;
+    //$user->save();
+
+    //if($eid == Auth::user()->eid){
+      return redirect()->action('EventController@ShowEvent')->with('success', 'Your attendance has been updated!');
+    //}
+    //return redirect()->action('EventController@ShowEvent')->with('success', "Updated ".$event->EventID."!");
+
   }
 }

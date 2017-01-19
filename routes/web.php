@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/admin', 'AdminController@Admin');
 
   Route::get('/attendance/{EventID?}', 'EventController@ShowEvent');
+  Route::post('/attendance/{EventID?}', 'EventController@EditEvent');
 });
 
 //Authentication
