@@ -22,6 +22,8 @@ Route::get('/apps', 'BackController@Index');
 Route::get('/food', 'FoodController@ShowFood');
 Route::get('/order', 'FoodController@ShowOrder');
 Route::post('/order', 'FoodController@Order');
+Route::get('/attendance', 'BackController@Events');
+Route::get('/events', 'EventController@ShowEvent');
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/profile/{eid?}', 'UserController@ShowProfile');

@@ -40,7 +40,7 @@ if ($json['meta']['status'] == "200") {
                 $sdt->setTimezone($tz);
                 $edt->setTimezone($tz);
 
-                $sql       = 'INSERT INTO events ' . '(`Event Name`, `Event ID`, `Event Category`, `Start Time`, `End Time`) '
+                $sql       = 'INSERT INTO events ' . '(`EventName`, `EventID`, `EventCategory`, `StartTime`, `EndTime`) '
                              . 'VALUES ( \'' . $title . '\' , \'' . $eventID . '\' , \'' . $categoryName . '\' , \'' . $sdt->format('Y-m-d H:i:s') .
                              '\',\' ' . $edt->format('Y-m-d H:i:s') . '\' )';
                 if ($db->query($sql) === TRUE) {
