@@ -27,7 +27,15 @@ class EventController extends Controller
     if ($EventID != null){
       $events = \DB::table('events')->get();
       $users = \DB::table('users')->get();
-      return view('back/OfficerEvent', compact('events', 'event', 'users'));
+
+      $attendance = \DB::table('attendance')->where('attended', '1')->where('EventID', $EventID)->get();
+
+      $attendedUsers = array();
+      foreach($attendance as $test) {
+        array_push($attendedUsers, $test->eid);
+      }
+
+      return view('back/OfficerEvent', compact('events', 'event', 'users', 'attendedUsers'));
     }
     return redirect()->action('EventController@Events')->withErrors('Event not found.');
   }
@@ -37,8 +45,6 @@ class EventController extends Controller
     if(Auth::user()->admin != 1){
       return $this->PermError();
     }
-
-
 
     $users = \DB::table('users')->get();
     $attendance = \DB::table('attendance')->get();
@@ -67,40 +73,10 @@ class EventController extends Controller
             ->update(['attended' => 0]);
         } else {
           //user not found, make new row
-
           \DB::insert('insert into attendance (eid, eventID, attended) values (?, ?, ?)', [$eid, $EventID, '0']);
         }
       }
-
-
-
-      //$eid = $request->input($temp);
-
-
-
-      //\DB::insert('insert into attendance (eid, eventID) values (?, ?)', [$eid, $EventID]);
     }
-
-
-
-
-
-
-
-    //$user = User::where('eid', $eid)->first();
-
-
-    //$user->firstname = $request->input('firstname');
-    //$user->lastname = $request->input('lastname');
-    //$user->email = $request->input('email');
-
-    //$user->updated_by = Auth::user()->id;
-    //$user->save();
-
-    //if($eid == Auth::user()->eid){
-      return redirect()->action('EventController@ShowEvent')->with('success', 'Your attendance has been updated!');
-    //}
-    //return redirect()->action('EventController@ShowEvent')->with('success', "Updated ".$event->EventID."!");
-
+    return redirect()->action('EventController@ShowEvent')->with('success', 'Your attendance has been updated!');
   }
 }

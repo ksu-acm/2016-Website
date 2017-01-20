@@ -51,8 +51,9 @@
                   <td>
                      <div class="row">
                        <div class="text-center">
-                      <input class="test" type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-size="small"
-                      data-onstyle="success" data-style="slow" name={{$user->eid}} />
+                      <input class="test" type="checkbox" <?php if(in_array($user->eid, $attendedUsers) == true){echo "checked";}?>
+                      data-toggle="toggle" data-on="Yes" data-off="No" data-size="small"
+                      data-onstyle="success" data-style="slow" id ={{$user->eid}} name={{$user->eid}} />
                      </div>
                    </div>
                   </td>
@@ -86,5 +87,6 @@
            })
        }(jQuery));
    });
+
 </script>
 @endsection
