@@ -51,13 +51,14 @@
                 @endif
 
 
-                <li class="nav-header">Attendance</li>
+
                 @if(Auth::check())
                   @if (Auth::user()->admin == 1)
+                  <li class="nav-header">Attendance</li>
                     @if (Request::is('Attendance'))
-                      <li class="active"><a href="{{ url('/attendance') }}">Manual</a></li>
+                      <li class="active"><a href="{{ url('/attendance') }}">Manual Entry</a></li>
                       @else
-                        <li><a href="{{ url('/attendance') }}">Manual</a></li>
+                        <li><a href="{{ url('/attendance') }}">Manual Entry</a></li>
                       @endif
                     @endif
                 @endif
