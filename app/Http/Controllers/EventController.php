@@ -30,12 +30,14 @@ class EventController extends Controller
 
       $attendance = \DB::table('attendance')->where('attended', '1')->where('EventID', $EventID)->get();
 
+      //users that attended the event
       $attendedUsers = array();
-      foreach($attendance as $test) {
-        array_push($attendedUsers, $test->eid);
+
+      foreach($attendance as $user) {
+        array_push($attendedUsers, $user->eid);
       }
 
-      return view('back/OfficerEvent', compact('events', 'event', 'users', 'attendedUsers'));
+      return view('back/officerEvent', compact('events', 'event', 'users', 'attendedUsers'));
     }
     return redirect()->action('EventController@Events')->withErrors('Event not found.');
   }
