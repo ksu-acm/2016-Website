@@ -2,9 +2,18 @@
 @section('title', 'Home')
 
 @section('content')
-<div id="index-banner" class="parallax-container">
-  <div class="parallax"><img src="{{ URL::asset('img/home.png') }}" alt="K-State ACM"></div>
-</div>
+<div class="slider">
+    <ul class="slides">
+      <li><img src="{{ URL::asset('img/home/1.jpg') }}"></li>
+      <li><img src="{{ URL::asset('img/home/2.jpg') }}"></li>
+      <li><img src="{{ URL::asset('img/home/3.jpg') }}"></li>
+      <li><img src="{{ URL::asset('img/home/4.jpg') }}"></li>
+      <li><img src="{{ URL::asset('img/home/5.jpg') }}"></li>
+      <li><img src="{{ URL::asset('img/home/6.jpg') }}"></li>
+      <li><img src="{{ URL::asset('img/home/7.jpg') }}"></li>
+      <li><img src="{{ URL::asset('img/home/8.jpg') }}"></li>
+    </ul>
+  </div>
 
 <div class="container">
   <div class="section">

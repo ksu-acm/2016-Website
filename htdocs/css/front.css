@@ -18,6 +18,10 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     margin-left: 5px;
 }
 
+.slider .indicators .indicator-item.active {
+  background-color: #512888;
+}
+
 body {
     min-height: 100%;
     min-width: 100%;
