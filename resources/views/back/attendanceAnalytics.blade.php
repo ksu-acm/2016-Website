@@ -63,41 +63,41 @@
     </div>
   </div>
   <div class="hr-divider m-t-md m-b">
-    <h3 class="hr-divider-content hr-divider-heading">Events</h3>
+    <h3 class="hr-divider-content hr-divider-heading">Ranks</h3>
   </div>
 
   <div class="flextable table-actions">
-  <div class="flextable-item flextable-primary">
-    <div class="btn-toolbar-item input-with-icon">
-      <input type="text" class="form-control input-block" id="filter" placeholder="Search events">
-      <span class="icon icon-magnifying-glass"></span>
+    <div class="flextable-item flextable-primary">
+      <div class="btn-toolbar-item input-with-icon">
+        <input type="text" class="form-control input-block" id="filter" placeholder="Search members">
+        <span class="icon icon-magnifying-glass"></span>
+      </div>
     </div>
-  </div>
-
   <div class="table-full">
-  <div class="table-responsive">
-    <table class="table" data-sort="attendance">
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Name</th>
-          <th>Percentage</th>
-          <th>Total Events</th>
-        </tr>
-      </thead>
-      <tbody class="searchable">
-        @foreach($users as $user)
-        <tr>
-          <td>0</td>
-          <td>
-            <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
-          </td>
-          <td>0%</td>
-          <td>0</td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table" data-sort="table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Percentage</th>
+            <th>Total Events</th>
+          </tr>
+        </thead>
+        <tbody class="searchable">
+          @foreach($users as $user)
+          <tr>
+            <td>0</td>
+            <td>
+              <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
+            </td>
+            <td>0%</td>
+            <td>0</td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 

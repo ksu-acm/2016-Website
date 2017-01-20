@@ -50,8 +50,6 @@
                   <li><a href="{{ url('/attendance/analytics') }}">Attendance Analytics</a></li>
                 @endif
 
-
-
                 @if(Auth::check())
                   @if (Auth::user()->admin == 1)
                   <li class="nav-header">Attendance</li>
