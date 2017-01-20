@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link href="{{URL::asset('css/bootstrap-toggle.min.css') }}" rel="stylesheet">
 
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -43,12 +44,14 @@
                 @else
                   <li><a href="{{ url('/food') }}">Food Analytics</a></li>
                 @endif
+
+                <li class="nav-header">Attendance</li>
                 @if(Auth::check())
                   @if (Auth::user()->admin == 1)
                     @if (Request::is('Attendance'))
-                      <li class="active"><a href="{{ url('/attendance') }}">Attendance</a></li>
+                      <li class="active"><a href="{{ url('/attendance') }}">Manual</a></li>
                       @else
-                        <li><a href="{{ url('/attendance') }}">Attendance</a></li>
+                        <li><a href="{{ url('/attendance') }}">Manual</a></li>
                       @endif
                     @endif
                 @endif
@@ -86,6 +89,7 @@
     <script src="{{ URL::asset('js/tablesorter.min.js') }}"></script>
     <script src="{{ URL::asset('js/toolkit.min.js') }}"></script>
     <script src="{{ URL::asset('js/back.js') }}"></script>
+    <script src="{{ URL::asset('js/bootstrap-toggle.min.js') }}"></script>
     @yield('footer')
   </body>
 </html>

@@ -5,8 +5,8 @@
 <div class="col-sm-9 content">
   <div class="dashhead">
     <div class="dashhead-titles">
-      <h6 class="dashhead-subtitle">Dashboards</h6>
-      <h2 class="dashhead-title">Attendance</h2>
+      <h6 class="dashhead-subtitle">Attendance</h6>
+      <h2 class="dashhead-title">Select Event</h2>
     </div>
     @if (count($errors) > 0)
       <div class="alert alert-danger" role="alert">

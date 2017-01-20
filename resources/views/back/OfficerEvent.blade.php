@@ -2,7 +2,6 @@
 @section('title', 'Event Attendance')
 @section('content')
 
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <div class="col-sm-9 content">
    <div class="dashhead">
       <div class="dashhead-titles">
@@ -33,8 +32,6 @@
          </div>
       </div>
    </div>
-
-
 <form method="POST" action="{{ url('/attendance/'.$event->EventID) }}">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    <div class="table-full">
@@ -43,8 +40,8 @@
             <thead>
                <tr>
                   <th>Name</th>
-                  <th>Attended?</th>
-                  <th>Excused</th>
+                  <th class="text-center">Attended?</th>
+                  <th class="text-center">Excused</th>
                </tr>
             </thead>
             <tbody class="searchable">
@@ -53,12 +50,18 @@
                   <td><a href="{{ url('/profile/'.$user->eid) }}">{{ $user->firstname }} {{$user->lastname}}</a></td>
                   <td>
                      <div class="row">
-                      <input type="checkbox" data-toggle="toggle" id={{$user->eid}} name="quality[10]" value="Yes" />
+                       <div class="text-center">
+                      <input class="test" type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-size="small"
+                      data-onstyle="success" data-style="slow" name={{$user->eid}} />
                      </div>
+                   </div>
                   </td>
-                  <td><label class="checkbox-inline" for="Checkboxes_Excused">
+                  <td>
+                    <div class="text-center">
+                    <label class="checkbox-inline" for="Checkboxes_Excused">
                      <input type="checkbox" name="Checkboxes" id="Checkboxes_Excused" value="Excused?">
                      </label>
+                   </div>
                   </td>
                </tr>
                @endforeach
@@ -66,7 +69,7 @@
          </table>
       </div>
    </div>
-   <button type="submit" class="btn btn-default">Update Attendance</button>
+ <button type="submit" class="btn btn-default">Update Attendance</button>
 </form>
 </div>
 @endsection
@@ -84,15 +87,4 @@
        }(jQuery));
    });
 </script>
-
-<script>
-  $(function() {
-    $('#allanjay808').bootstrapToggle({
-      on: 'Yes',
-      off: 'No'
-    });
-  })
-</script>
-
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
