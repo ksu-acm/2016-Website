@@ -15,6 +15,12 @@ class EventController extends Controller
     return view('back/attendance', compact('events'));
   }
 
+  public function Analytics()
+  {
+    $events = \DB::table('events')->get();
+    return view('back/attendanceAnalytics', compact('events'));
+  }
+
   public function ShowEvent($EventID = null)
   {
     $event = \DB::table('events')->where('EventID', $EventID)->first();

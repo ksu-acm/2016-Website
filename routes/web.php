@@ -23,6 +23,7 @@ Route::get('/food', 'FoodController@ShowFood');
 Route::get('/order', 'FoodController@ShowOrder');
 Route::post('/order', 'FoodController@Order');
 Route::get('/attendance', 'EventController@Events');
+Route::get('/attendance/analytics', 'EventController@Analytics');
 
 
 
