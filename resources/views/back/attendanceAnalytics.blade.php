@@ -25,44 +25,6 @@
     @endif
   </div>
   <div class="hr-divider m-t-md m-b">
-    <h3 class="hr-divider-content hr-divider-heading">Food Analytics</h3>
-  </div>
-  <div class="row statcards">
-    <div class="col-sm-6 col-lg-3 m-b">
-      <div class="statcard statcard-success">
-        <div class="p-a">
-          <span class="statcard-desc">Events</span>
-          <h2 class="statcard-number">{{ $pizzaTotals->events }}</h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-3 m-b">
-      <div class="statcard statcard-info">
-        <div class="p-a">
-          <span class="statcard-desc">Pizzas</span>
-          <h2 class="statcard-number">{{ $pizzaTotals->pizzasOrdered }}</h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-3 m-b">
-      <div class="statcard statcard-warning">
-        <div class="p-a">
-          <span class="statcard-desc">Slices per Person</span>
-          <h2 class="statcard-number">{{ ceil($pizzaTotals->avgSlicesPerPerson) }}</h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-3 m-b">
-      <div class="statcard statcard-danger">
-        <div class="p-a">
-          <span class="statcard-desc">Average Leftover</span>
-          <h2 class="statcard-number">{{ ceil($pizzaTotals->avgLeftoverSlices) }}</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hr-divider m-t-md m-b">
     <h3 class="hr-divider-content hr-divider-heading">Attendance</h3>
   </div>
 
@@ -100,4 +62,44 @@
       </div>
     </div>
   </div>
+
+  <div class="flextable table-actions">
+    <div class="flextable-item flextable-primary">
+      <div class="btn-toolbar-item input-with-icon">
+        <input type="text" class="form-control input-block" id="filter" placeholder="Search members">
+        <span class="icon icon-magnifying-glass"></span>
+      </div>
+    </div>
+  <div class="table-full">
+    <div class="table-responsive">
+      <table class="table" data-sort="table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th><div class="text-center">Percentage</div></th>
+            <th><div class="text-center">Total Events</div></th>
+          </tr>
+        </thead>
+        <tbody class="searchable">
+          @foreach($users as $key => $user)
+          <tr>
+            <td>{{$ranks[$key]}}</td>
+            <td>
+                <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
+            </td>
+
+            <td>
+              <div class="text-center">
+                <?php if($user->events_attended > 0 && $total_events > 0 ){ echo round($user->events_attended / $total_events, 2);} else { echo 0;}?>%</div></td>
+
+            <td><div class="text-center">{{$user->events_attended}}</div></td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 @endsection

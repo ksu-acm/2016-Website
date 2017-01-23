@@ -22,6 +22,10 @@ Route::get('/apps', 'BackController@Index');
 Route::get('/food', 'FoodController@ShowFood');
 Route::get('/order', 'FoodController@ShowOrder');
 Route::post('/order', 'FoodController@Order');
+Route::get('/attendance', 'EventController@Events');
+Route::get('/attendance/analytics', 'EventController@Analytics');
+
+
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/profile/{eid?}', 'UserController@ShowProfile');
@@ -33,6 +37,12 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('/delete/event/{id}', 'FoodController@DeleteEvent');
 
   Route::get('/admin', 'AdminController@Admin');
+
+  Route::get('/attendance/{EventID?}', 'EventController@ShowEvent');
+  Route::post('/attendance/{EventID}', 'EventController@EditEvent');
+
+  Route::get('/cardswiper', 'EventController@CardSwiper');
+  Route::get('/cardswiper', 'EventController@Swipe');
 });
 
 //Authentication
