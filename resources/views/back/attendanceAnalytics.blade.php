@@ -32,16 +32,16 @@
     <div class="col-sm-6 col-lg-3 m-b">
       <div class="statcard statcard-success">
         <div class="p-a">
-          <span class="statcard-desc">Average Officers</span>
-          <h2 class="statcard-number">%</h2>
+          <span class="statcard-desc">First Place</span>
+          <h4 class="statcard-number">{{$users[0]->firstname}} {{$users[0]->lastname}}</h4>
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-lg-3 m-b">
       <div class="statcard statcard-info">
         <div class="p-a">
-          <span class="statcard-desc">First Place</span>
-          <h2 class="statcard-number">0</h2>
+          <span class="statcard-desc">Second Place</span>
+          <h4 class="statcard-number">{{$users[1]->firstname}} {{$users[1]->lastname}}</h4>
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
       <div class="statcard statcard-warning">
         <div class="p-a">
           <span class="statcard-desc">Second Place</span>
-          <h2 class="statcard-number">0</h2>
+          <h4 class="statcard-number">{{$users[2]->firstname}} {{$users[2]->lastname}}</h4>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
       <div class="statcard statcard-danger">
         <div class="p-a">
           <span class="statcard-desc">Last Place</span>
-          <h2 class="statcard-number">0</h2>
+          <h4 class="statcard-number">{{$users[sizeof($users)-1]->firstname}} {{$users[sizeof($users)-1]->lastname}}</h4>
         </div>
       </div>
     </div>
@@ -85,14 +85,14 @@
           </tr>
         </thead>
         <tbody class="searchable">
-          @foreach($users as $user)
+          @foreach($users as $key => $user)
           <tr>
-            <td>0</td>
+            <td>{{$ranks[$key]}}</td>
             <td>
               <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
             </td>
             <td>0%</td>
-            <td>0</td>
+            <td>{{$user->events_attended}}</td>
           </tr>
           @endforeach
         </tbody>

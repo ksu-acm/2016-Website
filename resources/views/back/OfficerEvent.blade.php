@@ -24,6 +24,7 @@
       </div>
       @endif
    </div>
+
    <div class="flextable table-actions">
       <div class="flextable-item flextable-primary">
          <div class="btn-toolbar-item input-with-icon">
@@ -59,9 +60,9 @@
                   </td>
                   <td>
                     <div class="text-center">
-                    <label class="checkbox-inline" for="Checkboxes_Excused">
-                     <input type="checkbox" name="Checkboxes" id="Checkboxes_Excused" value="Excused?">
-                     </label>
+                      <input class="test" type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-size="small"
+                      data-onstyle="success" data-style="slow" id ="excuse_{{$user->eid}} name={{$user->eid}}" />
+                      <div id="console-event"></div>
                    </div>
                   </td>
                </tr>
@@ -89,4 +90,5 @@
    });
 
 </script>
+
 @endsection

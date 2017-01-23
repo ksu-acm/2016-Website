@@ -17,8 +17,24 @@ class EventController extends Controller
 
   public function Analytics()
   {
-    $users = \DB::table('users')->get();
-    return view('back/attendanceAnalytics', compact('users'));
+    $users = \DB::table('users')->orderBy('events_attended', 'desc')->get();
+
+    $rank_array = array();
+    foreach($users as $user) {
+      array_push($rank_array, $user->events_attended);
+    }
+
+    $ranks = array(1);
+
+    for ($i = 1; $i < count($rank_array); $i++)
+    {
+      if ($rank_array[$i] != $rank_array[$i-1])
+        $ranks[$i] = $i + 1;
+      else
+        $ranks[$i] = $ranks[$i-1];
+    }
+
+    return view('back/attendanceAnalytics', compact('users', 'ranks'));
   }
 
   public function ShowEvent($EventID = null)
@@ -61,9 +77,17 @@ class EventController extends Controller
             ->where('eid', $eid)
             ->where('eventID', $EventID)
             ->update(['attended' => 1]);
+
+            \DB::table('users')
+            ->where('eid', $eid)
+            ->increment('events_attended', 1);
         } else {
           //user not found, make new row
           \DB::insert('insert into attendance (eid, eventID, attended) values (?, ?, ?)', [$eid, $EventID, '1']);
+
+          \DB::table('users')
+          ->where('eid', $eid)
+          ->increment('events_attended', 1);
         }
       } else {
         //user did not attend event
