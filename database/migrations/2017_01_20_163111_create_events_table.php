@@ -18,8 +18,8 @@ class CreateEventsTable extends Migration
         $table->integer('EventID')->unique();;
         $table->string('EventName', 100);
         $table->string('EventCategory', 100);
-        $table->timestamp('StartTime');
-        $table->timestamp('EndTime');
+        $table->timestamp('StartTime')->nullable();
+        $table->timestamp('EndTime')->nullable();
         });
     }
 

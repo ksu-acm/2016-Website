@@ -119,8 +119,10 @@ var App = {
   },
 
   _tableSorters: function () {
-    $('[data-sort="table"]').tablesorter( {sortList: [[0,0]]} )
+    $('[data-sort="table"]').tablesorter( {sortList: [[1,0]]} )
+    $('[data-sort="events_sort"]').tablesorter( {sortList: [[3,0]]} )
     $('[data-sort="pizza"]').tablesorter( {sortList: [[1,0]]} )
+
   }
 }
 

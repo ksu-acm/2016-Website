@@ -39,7 +39,7 @@
 </div>
   <div class="table-full">
   <div class="table-responsive">
-    <table class="table" data-sort="table">
+    <table class="table" data-sort="events_sort">
       <thead>
         <tr>
           <th>Event Name</th>
