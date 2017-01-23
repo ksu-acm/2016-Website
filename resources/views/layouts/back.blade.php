@@ -58,6 +58,12 @@
                       @else
                         <li><a href="{{ url('/attendance') }}">Manual Entry</a></li>
                       @endif
+                    <!--@if (Request::is('CardSwiper'))
+                        <li class="active"><a href="{{ url('/cardswiper') }}">Card Swiper</a></li>
+                        @else
+                          <li><a href="{{ url('/cardswiper') }}">Card Swiper</a></li>
+                        @endif
+                      -->
                     @endif
                 @endif
 

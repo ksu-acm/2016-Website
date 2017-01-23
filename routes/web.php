@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('/attendance/{EventID?}', 'EventController@ShowEvent');
   Route::post('/attendance/{EventID}', 'EventController@EditEvent');
+
+  Route::get('/cardswiper', 'EventController@CardSwiper');
+  Route::get('/cardswiper', 'EventController@Swipe');
 });
 
 //Authentication

@@ -18,6 +18,19 @@ class EventController extends Controller
     return view('back/attendance', compact('events'));
   }
 
+  public function CardSwiper()
+  {
+    $users = \DB::table('users')->get();
+
+    return view('back/cardSwiper', compact('users'));
+  }
+
+  public function Swipe()
+  {
+
+    return view('back/cardSwiper');
+  }
+
   public function Analytics()
   {
     $users = \DB::table('users')->orderBy('events_attended', 'desc')->get();

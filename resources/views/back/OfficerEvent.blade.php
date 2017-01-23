@@ -42,7 +42,6 @@
                <tr>
                   <th>Name</th>
                   <th class="text-center">Attended?</th>
-                  <th class="text-center">Excused</th>
                </tr>
             </thead>
             <tbody class="searchable">
@@ -53,16 +52,9 @@
                      <div class="row">
                        <div class="text-center">
                       <input class="test" type="checkbox" <?php if(in_array($user->eid, $attendedUsers) == true){echo "checked";}?>
-                      data-toggle="toggle" data-on="Yes" data-off="No" data-size="small"
+                      data-toggle="toggle" data-on="Yes" data-off="No" data-size="small" onchange="disableCheckbox()"
                       data-onstyle="success" data-style="slow" id ={{$user->eid}} name={{$user->eid}} />
                      </div>
-                   </div>
-                  </td>
-                  <td>
-                    <div class="text-center">
-                      <input class="test" type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-size="small"
-                      data-onstyle="success" data-style="slow" id ="excuse_{{$user->eid}} name={{$user->eid}}" />
-                      <div id="console-event"></div>
                    </div>
                   </td>
                </tr>
@@ -90,5 +82,14 @@
    });
 
 </script>
+
+<script>
+function disableCheckbox() {
+  $('#excuse_allanjay808').bootstrapToggle('disable');
+}
+
+
+</script>
+
 
 @endsection
