@@ -91,7 +91,7 @@
             <td>
               <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
             </td>
-            <td>0%</td>
+            <td><?php if($user->events_attended > 0 && $total_events > 0 ){ echo round($user->events_attended / $total_events, 2);} else { echo 0;}?>%</td>
             <td>{{$user->events_attended}}</td>
           </tr>
           @endforeach

@@ -6,6 +6,7 @@ use App\User;
 use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -19,13 +20,14 @@ class EventController extends Controller
   {
     $users = \DB::table('users')->orderBy('events_attended', 'desc')->get();
 
+    $total_events = \DB::table('events')->where('startTime'  ,'<=', Carbon::now())->count();
+
     $rank_array = array();
     foreach($users as $user) {
       array_push($rank_array, $user->events_attended);
     }
 
     $ranks = array(1);
-
     for ($i = 1; $i < count($rank_array); $i++)
     {
       if ($rank_array[$i] != $rank_array[$i-1])
@@ -34,7 +36,7 @@ class EventController extends Controller
         $ranks[$i] = $ranks[$i-1];
     }
 
-    return view('back/attendanceAnalytics', compact('users', 'ranks'));
+    return view('back/attendanceAnalytics', compact('users', 'ranks', 'total_events'));
   }
 
   public function ShowEvent($EventID = null)
