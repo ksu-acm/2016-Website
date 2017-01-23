@@ -70,7 +70,7 @@
     <div class="col-sm-6 col-lg-3 m-b">
       <div class="statcard statcard-success">
         <div class="p-a">
-          <span class="statcard-desc">First Place</span>
+          <span class="statcard-desc"><?php if($users[0]->events_attended == $users[1]->events_attended){echo 'First Place (Tied)';} else { echo 'First Place';}?></span>
           <h4 class="statcard-number">{{$users[0]->firstname}} {{$users[0]->lastname}}</h4>
         </div>
       </div>
@@ -78,7 +78,7 @@
     <div class="col-sm-6 col-lg-3 m-b">
       <div class="statcard statcard-info">
         <div class="p-a">
-          <span class="statcard-desc">Second Place</span>
+          <span class="statcard-desc"><?php if($users[1]->events_attended == $users[0]->events_attended){echo 'First Place (Tied)';} else {echo 'Second Place';}?></span>
           <h4 class="statcard-number">{{$users[1]->firstname}} {{$users[1]->lastname}}</h4>
         </div>
       </div>
@@ -86,7 +86,7 @@
     <div class="col-sm-6 col-lg-3 m-b">
       <div class="statcard statcard-warning">
         <div class="p-a">
-          <span class="statcard-desc">Second Place</span>
+          <span class="statcard-desc"><?php if($users[2]->events_attended == $users[0]->events_attended){echo 'First Place (Tied)';} else if($users[2]->events_attended == $users[1]-events_attended){echo 'Second Place (Tied)';} else {echo 'Third Place';}?></span>
           <h4 class="statcard-number">{{$users[2]->firstname}} {{$users[2]->lastname}}</h4>
         </div>
       </div>

@@ -32,7 +32,7 @@
     <div class="col-sm-6 col-lg-3 m-b">
       <div class="statcard statcard-success">
         <div class="p-a">
-          <span class="statcard-desc">First Place</span>
+          <span class="statcard-desc"><?php if($users[0]->events_attended == $users[1]->events_attended){echo 'First Place (Tied)';} else { echo 'First Place';}?></span>
           <h4 class="statcard-number">{{$users[0]->firstname}} {{$users[0]->lastname}}</h4>
         </div>
       </div>
@@ -40,7 +40,7 @@
     <div class="col-sm-6 col-lg-3 m-b">
       <div class="statcard statcard-info">
         <div class="p-a">
-          <span class="statcard-desc">Second Place</span>
+          <span class="statcard-desc"><?php if($users[1]->events_attended == $users[0]->events_attended){echo 'First Place (Tied)';} else {echo 'Second Place';}?></span>
           <h4 class="statcard-number">{{$users[1]->firstname}} {{$users[1]->lastname}}</h4>
         </div>
       </div>
@@ -48,7 +48,7 @@
     <div class="col-sm-6 col-lg-3 m-b">
       <div class="statcard statcard-warning">
         <div class="p-a">
-          <span class="statcard-desc">Second Place</span>
+          <span class="statcard-desc"><?php if($users[2]->events_attended == $users[0]->events_attended){echo 'First Place (Tied)';} else if($users[2]->events_attended == $users[1]-events_attended){echo 'Second Place (Tied)';} else {echo 'Third Place';}?></span>
           <h4 class="statcard-number">{{$users[2]->firstname}} {{$users[2]->lastname}}</h4>
         </div>
       </div>
@@ -80,8 +80,8 @@
           <tr>
             <th>Rank</th>
             <th>Name</th>
-            <th>Percentage</th>
-            <th>Total Events</th>
+            <th><div class="text-center">Percentage</div></th>
+            <th><div class="text-center">Total Events</div></th>
           </tr>
         </thead>
         <tbody class="searchable">
@@ -89,10 +89,14 @@
           <tr>
             <td>{{$ranks[$key]}}</td>
             <td>
-              <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
+                <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
             </td>
-            <td><?php if($user->events_attended > 0 && $total_events > 0 ){ echo round($user->events_attended / $total_events, 2);} else { echo 0;}?>%</td>
-            <td>{{$user->events_attended}}</td>
+
+            <td>
+              <div class="text-center">
+                <?php if($user->events_attended > 0 && $total_events > 0 ){ echo round($user->events_attended / $total_events, 2);} else { echo 0;}?>%</div></td>
+
+            <td><div class="text-center">{{$user->events_attended}}</div></td>
           </tr>
           @endforeach
         </tbody>

@@ -12,15 +12,16 @@ class EventController extends Controller
 {
   public function Events()
   {
-    $events = \DB::table('events')->get();
+    $events = \DB::table('events')
+    ->where('startTime'  ,'<=', Carbon::now('America/Chicago')->addHour())
+    ->orderBy('startTime', 'desc')->get();
     return view('back/attendance', compact('events'));
   }
 
   public function Analytics()
   {
     $users = \DB::table('users')->orderBy('events_attended', 'desc')->get();
-
-    $total_events = \DB::table('events')->where('startTime'  ,'<=', Carbon::now())->count();
+    $total_events = \DB::table('events')->where('startTime'  ,'<=', Carbon::now('America/Chicago'))->count();
 
     $rank_array = array();
     foreach($users as $user) {
@@ -42,11 +43,15 @@ class EventController extends Controller
   public function ShowEvent($EventID = null)
   {
     $event = \DB::table('events')->where('EventID', $EventID)->first();
+
     if ($EventID != null){
       $events = \DB::table('events')->get();
       $users = \DB::table('users')->get();
 
-      $attendance = \DB::table('attendance')->where('attended', '1')->where('EventID', $EventID)->get();
+      $attendance = \DB::table('attendance')
+      ->where('attended', '1')
+      ->where('EventID', $EventID)
+      ->get();
 
       //users that attended the event
       $attendedUsers = array();
