@@ -3,7 +3,7 @@ include 'config.php';
 
 $url = URL;
 
-$db = new mysqli(DBHOST, DBUSER, DBPASS, DATABASE, '8889');
+$db = new mysqli(DBHOST, DBUSER, DBPASS, DATABASE, '3306');
 if ($db->connect_errno > 0) {
     die('Unable to connect to database [' . $db->connect_error . ']');
 }
@@ -46,7 +46,7 @@ if ($json['meta']['status'] == "200") {
                 if ($db->query($sql) === TRUE) {
                     echo "Success";
                 } else {
-                    echo "Failed or already in DB";
+                  echo "Failed";
                 }
             }
         }

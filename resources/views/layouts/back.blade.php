@@ -44,10 +44,14 @@
                 @else
                   <li><a href="{{ url('/food') }}">Food Analytics</a></li>
                 @endif
-                @if (Request::is('attendanceAnalytics'))
-                  <li class="active"><a href="{{ url('/attendance/analytics') }}">Attendance Analytics</a></li>
-                @else
-                  <li><a href="{{ url('/attendance/analytics') }}">Attendance Analytics</a></li>
+                @if(Auth::check())
+                  @if (Auth::user()->admin == 1 || Auth::user()->jofficer == 1 || Auth::user()->officer == 1 || Auth::user()->advisor == 1)
+                    @if (Request::is('attendanceAnalytics'))
+                      <li class="active"><a href="{{ url('/attendance/analytics') }}">Attendance Analytics</a></li>
+                      @else
+                        <li><a href="{{ url('/attendance/analytics') }}">Attendance Analytics</a></li>
+                      @endif
+                  @endif
                 @endif
 
                 @if(Auth::check())
