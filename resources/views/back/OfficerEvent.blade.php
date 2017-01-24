@@ -67,6 +67,7 @@
 </form>
 </div>
 @endsection
+
 @section('footer')
 <script>
    $(document).ready(function () {
