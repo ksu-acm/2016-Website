@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
              $table->integer('updated_by')->default(0);
              $table->rememberToken();
              $table->timestamps();
+             $table->integer('events_attended')->default(0);
          });
          File::makeDirectory(public_path().'/storage/img/', 0777, true);
      }
