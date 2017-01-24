@@ -62,6 +62,8 @@
     </div>
   </div>
 
+  @if(Auth::check())
+    @if (Auth::user()->admin == 1 || Auth::user()->jofficer == 1 || Auth::user()->officer == 1 || Auth::user()->advisor == 1)
   <div class="hr-divider m-t-md m-b">
     <h3 class="hr-divider-content hr-divider-heading">Attendance</h3>
   </div>
@@ -100,4 +102,6 @@
       </div>
     </div>
   </div>
+    @endif
+  @endif
 @endsection
