@@ -72,13 +72,13 @@
     </div>
   <div class="table-full">
     <div class="table-responsive">
-      <table class="table" data-sort="table">
+      <table class="table" data-sort="attendance">
         <thead>
           <tr>
             <th>Rank</th>
             <th>Name</th>
             <th><div class="text-center">Percentage</div></th>
-            <th><div class="text-center">Total Events</div></th>
+            <th><div class="text-center">Events Attended</div></th>
           </tr>
         </thead>
         <tbody class="searchable">
@@ -88,7 +88,6 @@
             <td>
                 <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
             </td>
-
             <td>
               <div class="text-center">
                 <?php if($user->events_attended > 0 && $total_events > 0 ){ echo (round($user->events_attended / $total_events, 2) * 100);} else { echo 0;}?>%</div></td>
