@@ -93,14 +93,17 @@ class EventController extends Controller
         //user attended event
         if (\DB::table('attendance')->where('eid', $eid)->where('eventID', $EventID)->first()) {
            // user found, update it
+           if(\DB::table('attendance')->where('eid', $eid)->where('eventID', $EventID)->where('attended', '==', '0')->first()) {
+             \DB::table('users')
+             ->where('eid', $eid)
+             ->increment('events_attended', 1);
+           }
            \DB::table('attendance')
             ->where('eid', $eid)
             ->where('eventID', $EventID)
             ->update(['attended' => 1]);
 
-            \DB::table('users')
-            ->where('eid', $eid)
-            ->increment('events_attended', 1);
+
         } else {
           //user not found, make new row
           \DB::insert('insert into attendance (eid, eventID, attended) values (?, ?, ?)', [$eid, $EventID, '1']);
@@ -112,11 +115,19 @@ class EventController extends Controller
       } else {
         //user did not attend event
         if (\DB::table('attendance')->where('eid', $eid)->where('eventID', $EventID)->first()) {
+
            // user found, update it
            \DB::table('attendance')
             ->where('eid', $eid)
             ->where('eventID', $EventID)
             ->update(['attended' => 0]);
+
+            if(\DB::table('attendance')->where('eid', $eid)->where('eventID', $EventID)->where('attended', '==', '0')->first() && $user->events_attended > 0) {
+              \DB::table('users')
+              ->where('eid', $eid)
+              ->decrement('events_attended', 1);
+            }
+
         } else {
           //user not found, make new row
           \DB::insert('insert into attendance (eid, eventID, attended) values (?, ?, ?)', [$eid, $EventID, '0']);
