@@ -91,7 +91,7 @@
 
             <td>
               <div class="text-center">
-                <?php if($user->events_attended == $total_events && $user->events_attended > 0) { echo '100'; } else if($user->events_attended > 0 && $total_events > 0 ){ echo round($user->events_attended / $total_events, 2);} else { echo 0;}?>%</div></td>
+                <?php if($user->events_attended > 0 && $total_events > 0 ){ echo (round($user->events_attended / $total_events, 2) * 100);} else { echo 0;}?>%</div></td>
 
             <td><div class="text-center">{{$user->events_attended}}</div></td>
           </tr>
