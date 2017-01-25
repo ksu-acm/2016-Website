@@ -13,6 +13,6 @@ class Controller extends BaseController
 
     public function PermError()
     {
-      return view('back/index')->withErrors("You don't have privileges for that!");
+      return redirect()->action('BackController@Index')->withErrors("You don't have privileges for that!");
     }
 }
