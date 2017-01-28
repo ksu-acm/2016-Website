@@ -122,11 +122,10 @@ class EventController extends Controller
             ->where('eventID', $EventID)
             ->update(['attended' => 0]);
 
-            if(\DB::table('attendance')->where('eid', $eid)->where('eventID', $EventID)->where('attended', '==', '0')->first() && $user->events_attended > 0) {
+              $count = \DB::table('attendance')->where('eid', $eid)->where('attended', 1)->count();
               \DB::table('users')
               ->where('eid', $eid)
-              ->decrement('events_attended', 1);
-            }
+              ->update(['events_attended' => $count]);
 
         } else {
           //user not found, make new row
