@@ -80,9 +80,15 @@ class EventController extends Controller
 
   public function DeleteEvent($eventID) {
 
-    $events = \DB::table('events');
+    if (Auth::user()->admin == 1 || Auth::user()->advisor == 1){
 
-    return redirect()->action('EventController@Events')->with('success', 'The event has been deleted!');
+      $events = \DB::table('events');
+      
+
+
+      return redirect()->action('EventController@Events')->with('success', 'The event has been deleted!');
+    }
+    return $this->PermError();
   }
 
   public function EditEvent(Request $request, $EventID = null)

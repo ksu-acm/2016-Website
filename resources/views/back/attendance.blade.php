@@ -37,8 +37,6 @@
     </div>
   </div>
 </div>
-<form method="POST" action="{{ url('/attendance') }}">
- <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="table-full">
     <div class="table-responsive">
       <table class="table" data-sort="events">
@@ -60,14 +58,16 @@
             <td>{{ date("F j, Y", strtotime($event->StartTime))}}</td>
             <td>{{ date("g:i a", strtotime($event->StartTime)) }}</td>
             <td>{{ date("g:i a", strtotime($event->EndTime)) }}</td>
+            <form method="POST" action="{{ url('delete/attendance/'.$event->EventID) }}">
+             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <td><button type="submit" class="btn btn-danger btn-sm" id="{{ $event->EventID }}" onclick="return confirm('Are you sure you want to delete @if($event != ""){!! $event->EventName !!}@endif ?');">Delete Event</button></td>
+            </form>
           </tr>
           @endforeach
         </tbody>
       </table>
     </div>
   </div>
-</form>
 @endsection
 
 @section('footer')

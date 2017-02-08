@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::post('/delete/event/{id}', 'FoodController@DeleteEvent');
 
-  Route::post('/attendance', 'EventController@DeleteEvent');
+  Route::post('/delete/attendance/{id}', 'EventController@DeleteEvent');
 
   Route::get('/admin', 'AdminController@Admin');
 
