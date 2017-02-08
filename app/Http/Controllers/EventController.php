@@ -78,6 +78,13 @@ class EventController extends Controller
     return redirect()->action('EventController@Events')->withErrors('Event not found.');
   }
 
+  public function DeleteEvent($eventID) {
+
+    $events = \DB::table('events');
+
+    return redirect()->action('EventController@Events')->with('success', 'The event has been deleted!');
+  }
+
   public function EditEvent(Request $request, $EventID = null)
   {
     if(Auth::user()->admin != 1){

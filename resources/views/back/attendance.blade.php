@@ -37,32 +37,37 @@
     </div>
   </div>
 </div>
+<form method="POST" action="{{ url('/attendance') }}">
+ <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="table-full">
-  <div class="table-responsive">
-    <table class="table" data-sort="events">
-      <thead>
-        <tr>
-          <th>Event Name</th>
-          <th>Event Category</th>
-          <th>Date</th>
-          <th>Start Time</th>
-          <th>End Time</th>
-        </tr>
-      </thead>
-      <tbody class="searchable">
-        @foreach($events as $event)
-        <tr>
-          <td><a href="{{ url('/attendance/'.$event->EventID) }}">{{ $event->EventName }}</a></td>
-          <td>{{ $event->EventCategory }}</td>
-          <td>{{ date("F j, Y", strtotime($event->StartTime))}}</td>
-          <td>{{ date("g:i a", strtotime($event->StartTime)) }}</td>
-          <td>{{ date("g:i a", strtotime($event->EndTime)) }}</td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table" data-sort="events">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Event Category</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Delete Event</th>
+          </tr>
+        </thead>
+        <tbody class="searchable">
+          @foreach($events as $event)
+          <tr>
+            <td><a href="{{ url('/attendance/'.$event->EventID) }}">{{ $event->EventName }}</a></td>
+            <td>{{ $event->EventCategory }}</td>
+            <td>{{ date("F j, Y", strtotime($event->StartTime))}}</td>
+            <td>{{ date("g:i a", strtotime($event->StartTime)) }}</td>
+            <td>{{ date("g:i a", strtotime($event->EndTime)) }}</td>
+            <td><button type="submit" class="btn btn-danger btn-sm" id="{{ $event->EventID }}" onclick="return confirm('Are you sure you want to delete @if($event != ""){!! $event->EventName !!}@endif ?');">Delete Event</button></td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+</form>
 @endsection
 
 @section('footer')
