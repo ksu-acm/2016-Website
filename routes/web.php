@@ -16,6 +16,7 @@ Route::get('/', 'FrontController@Index');
 Route::get('/events', 'FrontController@Events');
 Route::get('/officers', 'FrontController@Officers');
 Route::get('/jrofficers', 'FrontController@JrOfficers');
+Route::get('/sponsors', 'FrontController@Sponsors');
 
 //Back
 Route::get('/apps', 'BackController@Index');

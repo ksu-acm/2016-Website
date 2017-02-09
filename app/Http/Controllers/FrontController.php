@@ -28,4 +28,10 @@ class FrontController extends Controller
     $jrofficers = \DB::table('users')->where('jofficer', 1)->get();
     return view('front/jrofficers', compact('jrofficers'));
   }
+
+  public function Sponsors()
+  {
+    $sponsors = \DB::table('sponsors')->get();
+    return view('front/sponsors', compact('sponsors'));
+  }
 }

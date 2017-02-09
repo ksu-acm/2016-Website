@@ -24,6 +24,7 @@
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
         <li><a href="{{ url('/events') }}">Events</a></li>
+        <li><a href="{{ url('/sponsors') }}">Sponsors</a></li>
         <li><a href="https://orgsync.com/86744/chapter" target="_blank">OrgSync</a></li>
         <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
         <li><a href="{{ url('/apps') }}">Apps</a></li>
@@ -36,6 +37,7 @@
     <li><a href="{{ url('/') }}">Home</a></li>
     <li><a class="dropdown-button" href="#!" data-activates="dropdownm" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
     <li><a href="{{ url('/events') }}">Events</a></li>
+    <li><a href="{{ url('/sponsors') }}">Sponsors</a></li>
     <li><a href="https://orgsync.com/86744/chapter" target="_blank">OrgSync</a></li>
     <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
     <li><a href="{{ url('/apps') }}">Apps</a></li>
