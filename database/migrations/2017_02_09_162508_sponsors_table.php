@@ -16,7 +16,6 @@ class SponsorsTable extends Migration
         Schema::create('sponsors', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name');
-        $table->mediumText('bio');
         $table->string('picture')->default('');
       });
     File::makeDirectory(public_path().'/storage/img/sponsors', 0777, true);
