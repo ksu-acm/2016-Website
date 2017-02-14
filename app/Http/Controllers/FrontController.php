@@ -31,7 +31,7 @@ class FrontController extends Controller
 
   public function Sponsors()
   {
-    $sponsors = \DB::table('sponsors')->get();
-    return view('front/sponsors', compact('sponsors'));
+
+    return view('front/sponsors');
   }
 }
