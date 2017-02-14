@@ -10,20 +10,15 @@
     </div>
 
     <div class="row">
-    @foreach($sponsors as $sponsor)
-        <div class="col s4">
-          <div class="card-panel hoverable">
+
+        <div class="col s12">
             <div class="center promo">
-              @if($sponsor->picture == "")
-                <img src="{{ URL::asset('img/default.png') }}" alt="">
-              @else
-                <img src="{{ url('/storage/img/sponsors'.$sponsor->picture) }}" alt="">
-              @endif
-              <p class="promo-caption">{{ $sponsor->name }}</p>
+
+                <img src="{{ URL::asset('img/sponsors/jetbrains.png') }}" alt="">
+
             </div>
-          </div>
         </div>
-      @endforeach
+
     </div>
   </div>
 </div>
