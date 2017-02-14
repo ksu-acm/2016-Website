@@ -10,15 +10,11 @@
     </div>
 
     <div class="row">
-
         <div class="col s12">
             <div class="center promo">
-
-                <img src="{{ URL::asset('img/sponsors/jetbrains.png') }}" alt="">
-
+              <img src="{{ URL::asset('img/sponsors/jetbrains.png') }}" alt="">
             </div>
         </div>
-
     </div>
   </div>
 </div>
