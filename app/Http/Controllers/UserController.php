@@ -26,9 +26,9 @@ class UserController extends Controller
     return $this->PermError();
   }
 
-  public function UpdateProfile($eid = null, Request $request)
+  public function UpdateProfile($eid, Request $request)
   {
-    if($eid != null && Auth::user()->admin != 1){
+    if($eid != Auth::user()->eid && Auth::user()->admin != 1){
       return $this->PermError();
     }
 
