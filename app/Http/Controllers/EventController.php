@@ -40,16 +40,14 @@ class EventController extends Controller
     foreach($users as $user) {
       array_push($rank_array, $user->events_attended);
     }
-
     $ranks = array(1);
-    for ($i = 1; $i < count($rank_array); $i++)
-    {
-      if ($rank_array[$i] != $rank_array[$i-1])
-        $ranks[$i] = $i + 1;
-      else
-        $ranks[$i] = $ranks[$i-1];
-    }
-
+      for ($i = 1; $i < count($rank_array); $i++)
+      {
+        if ($rank_array[$i] != $rank_array[$i-1])
+          $ranks[$i] = $i + 1;
+        else
+          $ranks[$i] = $ranks[$i-1];
+      }
     return view('back/attendanceAnalytics', compact('users', 'ranks', 'total_events'));
   }
 
@@ -82,10 +80,12 @@ class EventController extends Controller
 
     if (Auth::user()->admin == 1 || Auth::user()->advisor == 1){
 
-      $events = \DB::table('events');
-      
+      \DB::table('events')->where('eventID', $eventID)->delete();
+      $users = \DB::table('attendance')->where('eventID', $eventID)->where('attended', 1)->get();
 
-
+      foreach($users as $user) {
+        \DB::table('users')->where('eid', $user->eid)->decrement('events_attended');
+      }
       return redirect()->action('EventController@Events')->with('success', 'The event has been deleted!');
     }
     return $this->PermError();
