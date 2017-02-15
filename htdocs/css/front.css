@@ -5,6 +5,8 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     vertical-align: top;
 }
 
+
+
 .side-nav li>a>i, .side-nav li>a>[class^="mdi-"], .side-nav li>a>[class*="mdi-"], .side-nav li>a>i.material-icons {
   float: inherit;
 }
@@ -126,6 +128,7 @@ p {
     #index-banner .section {
         top: 10%;
     }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -135,6 +138,7 @@ p {
     .brand-logo img {
         height: 56px;
     }
+
 }
 
 .icon-block {

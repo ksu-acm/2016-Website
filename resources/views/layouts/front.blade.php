@@ -22,10 +22,9 @@
       <a href="{{ url('/') }}" class="brand-logo left"><img src="{{ URL::asset('img/acm.svg') }}" />K-State ACM</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
-        <li><a href="{{ url('/events') }}">Events</a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdowno" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdowne" data-beloworigin="true">Events<i class="material-icons">arrow_drop_down</i></a></li>
         <li><a href="{{ url('/sponsors') }}">Sponsors</a></li>
-        <li><a href="https://orgsync.com/86744/chapter" target="_blank">OrgSync</a></li>
         <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
         <li><a href="{{ url('/apps') }}">Apps</a></li>
       </ul>
@@ -35,20 +34,27 @@
   </div>
   <ul id="nav-mobile" class="side-nav">
     <li><a href="{{ url('/') }}">Home</a></li>
-    <li><a class="dropdown-button" href="#!" data-activates="dropdownm" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
-    <li><a href="{{ url('/events') }}">Events</a></li>
+    <li><a class="dropdown-button" href="#!" data-activates="dropdownmo" data-beloworigin="true">Officers<i class="material-icons">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-button" href="#!" data-activates="dropdownme" data-beloworigin="true">Events<i class="material-icons">arrow_drop_down</i></a></li>
     <li><a href="{{ url('/sponsors') }}">Sponsors</a></li>
-    <li><a href="https://orgsync.com/86744/chapter" target="_blank">OrgSync</a></li>
     <li><a href="mailto:ksuacm@ksu.edu">Contact</a></li>
     <li><a href="{{ url('/apps') }}">Apps</a></li>
   </ul>
-  <ul id="dropdown" class="dropdown-content collection">
+  <ul id="dropdowno" class="dropdown-content collection">
     <li><a href="{{ url('/officers') }}">Officers</a></li>
     <li><a href="{{ url('/jrofficers') }}">Junior Officers</a></li>
   </ul>
-  <ul id="dropdownm" class="dropdown-content collection">
+  <ul id="dropdownmo" class="dropdown-content collection">
     <li><a href="{{ url('/officers') }}">Officers</a></li>
     <li><a href="{{ url('/jrofficers') }}">Junior Officers</a></li>
+  </ul>
+  <ul id="dropdowne" class="dropdown-content collection">
+    <li><a href="{{ url('/events') }}">Events</a></li>
+    <li><a href="https://orgsync.com/86744/chapter">OrgSync</a></li>
+  </ul>
+  <ul id="dropdownme" class="dropdown-content collection">
+    <li><a href="{{ url('/events') }}">Events</a></li>
+    <li><a href="https://orgsync.com/86744/chapter">OrgSync</a></li>
   </ul>
 @yield('content')
 <footer class="page-footer">
