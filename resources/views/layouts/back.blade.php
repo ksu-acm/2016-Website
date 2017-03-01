@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
     <link href="{{ URL::asset('css/toolkit-inverse.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/back.css') }}" rel="stylesheet">
+    <script src="{{ URL::asset('js/ga.js') }}"></script>
     @yield('head')
   </head>
 
