@@ -3,17 +3,18 @@
     vertical-align: middle;
     margin: 25px auto;
     width: 25%;
+    padding: 5px;
     height: auto;
     max-height: 400px;
     margin: auto !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .sponsor img {
       display: block;
       vertical-align: middle;
       margin: 25px auto;
-      padding-top: 40px;
+
       width: auto;
       max-width: 250px;
       height: auto;
