@@ -6,28 +6,32 @@ use Illuminate\Database\Migrations\Migration;
 
 class SponsorsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('sponsors', function (Blueprint $table) {
-        $table->increments('id');
-        $table->string('name');
-        $table->string('picture')->default('');
-      });
-    File::makeDirectory(public_path().'/storage/img/sponsors', 0777, true);
-    }
+  /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+  public function up()
+  {
+    Schema::create('sponsors', function (Blueprint $table) {
+      $table->increments('id');
+      $table->string('name');
+      $table->string('website')->default('');
+      $table->string('picture')->default('');
+      $table->integer('created_by');
+      $table->integer('updated_by');
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('sponsors');
-    }
+  /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+  public function down()
+  {
+    Schema::disableForeignKeyConstraints();
+    Schema::drop('sponsors');
+  }
 }
