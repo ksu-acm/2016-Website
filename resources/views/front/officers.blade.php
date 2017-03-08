@@ -64,15 +64,15 @@
             <div class="row">
                 @foreach($officers as $officer)
 
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 text-center">
                     <div class="thumbnail">
                         @if($officer->picture == "")
-                          <a href="#" data-toggle="modal" data-target="#modal-{{$officer->id}}"><img src="{{ URL::asset('img/default.png') }}" alt="" class="img-rounded"></a>
+                          <a href="#" data-toggle="modal" data-target="#modal-{{$officer->id}}"><img src="{{ URL::asset('img/default.png') }}" alt="" class="img-rounded img-responsive"></a>
                         @else
                           <a href="#" data-toggle="modal" data-target="#modal-{{$officer->id}}"><img src="{{ url('/storage/img/'.$officer->picture) }}" alt="" class="img-rounded img-responsive"></a>
                         @endif
                         <div class="caption">
-                            <h3>{{ $officer->firstname }} {{ $officer->lastname }}</h3>
+                            <h3 class="officer-name">{{ $officer->firstname }} {{ $officer->lastname }}</h3>
                             <p>@if($officer->advisor == 1) Advisor @else {{ $officer->title }} @endif</p>
                         </div>
                     </div>
@@ -107,6 +107,19 @@
             </div>
         </section>
 
+        <section class="bg-primary" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading">The People</h2>
+                        <hr class="light">
+                        <p class="text-faded">Get to know the Officers and Junior Officers that make all of the ACM events possible.</p>
+                        <a href="{{ url('/officers' )}}" class="btn-purple btn-hover page-scroll btn btn-default btn-xl sr-button">Meet us!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="jofficers">
             <div class="container">
                 <div class="row">
@@ -118,8 +131,8 @@
             </div>
             <div class="container">
                 <div class="row">
-                    @foreach($officers as $officer)
-                    <div class="col-lg-3 col-md-6 text-center">
+                    @foreach($jrofficers as $officer)
+                    <div class="col-lg-3 col-md-4 col-sm-4 text-center">
                         <div class="thumbnail">
                             @if($officer->picture == "")
                               <a href="#" data-toggle="modal" data-target="#modal-{{$officer->id}}"><img src="{{ URL::asset('img/default.png') }}" alt="" class="img-rounded"></a>
@@ -127,7 +140,7 @@
                               <a href="#" data-toggle="modal" data-target="#modal-{{$officer->id}}"><img src="{{ url('/storage/img/'.$officer->picture) }}" alt="" class="img-rounded img-responsive"></a>
                             @endif
                             <div class="caption">
-                                <h3>{{ $officer->firstname }} {{ $officer->lastname }}</h3>
+                                <h3 class="officer-name">{{ $officer->firstname }} {{ $officer->lastname }}</h3>
                                 <p>@if($officer->advisor == 1) Advisor @else {{ $officer->title }} @endif</p>
                             </div>
                         </div>
@@ -157,7 +170,6 @@
                             </div>
                         </div>
                         @endforeach
-
                     </div>
                 </div>
             </section>

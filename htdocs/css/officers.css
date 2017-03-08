@@ -29,3 +29,7 @@ header {
     border: none;
     margin-bottom: 0px;
 }
+
+.officer-name {
+    font-size: 23px;
+}

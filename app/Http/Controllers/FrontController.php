@@ -20,7 +20,8 @@ class FrontController extends Controller
   public function Officers()
   {
     $officers = \DB::table('users')->where('officer', 1)->orWhere('advisor', 1)->get();
-    return view('front/officers', compact('officers'));
+    $jrofficers = \DB::table('users')->where('jofficer', 1)->get();
+    return view('front/officers', compact('officers', 'jrofficers'));
   }
 
   public function JrOfficers()
