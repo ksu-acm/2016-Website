@@ -24,12 +24,6 @@ class CASAuthenticate
                 $user->eid = Cas::user();
                 $user->email = $user->eid."@ksu.edu";
                 $user->firstname = $user->eid;
-                $user->lastname = "";
-                $user->title = "";
-                $user->bio = "";
-                $user->jofficer = 0;
-                $user->officer = 0;
-                $user->advisor = 0;
                 $user->save();
             }
             Auth::login($user);
