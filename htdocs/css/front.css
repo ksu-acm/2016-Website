@@ -1,0 +1,91 @@
+header {
+    background-image: url('/img/background.png');
+}
+
+hr {
+    border-color: white !important;
+    max-width: inherit;
+}
+
+
+
+.btn-hover {
+    color: #5a2b81 !important;
+}
+
+.btn-purple{
+    color: #5a2b81;
+    background-color: rgba(255, 255, 255, 1) !important;
+}
+
+.navbar-default.affix .navbar-header .navbar-brand {
+    color: #5a2b81;
+}
+
+.navbar-default .nav>li.active>a, .navbar-default .nav>li.active>a:focus {
+    color: #5a2b81 !important;
+
+}
+
+.navbar-default .navbar-header .navbar-brand {
+    color: white;
+}
+
+.email-link {
+    color: #0645AD;
+}
+
+.portfolio-opacity {
+    opacity: 1 !important;
+}
+
+.portfolio-box .portfolio-box-caption {
+    opacity: .9 !important;
+}
+
+.btn-primary:focus {
+    color: #5a2b81;
+}
+
+
+
+.bg-primary {
+    background-color: #53298C;
+}
+
+.sr-icons {
+    color: #53298C;
+}
+
+.portfolio-box-caption {
+    background: rgba(106, 52, 178, 0.85) !important;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .navbar-default .navbar-header .navbar-brand {
+        color: #5a2b81;
+    }
+
+
+}
+
+@media only screen and (min-width: 768px) {
+    .nav-hover a:hover {
+        color: white !important;
+    }
+
+    .navbar-default.affix .nav>li>a {
+        color: black;
+    }
+
+     .navbar-default.affix .nav>li>a:hover {
+        color: #5F2D8C !important;
+    }
+
+    .navbar-brand:hover {
+        color: #5F2D8C !important;
+    }
+
+
+}

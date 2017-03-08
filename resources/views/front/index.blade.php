@@ -2,14 +2,50 @@
 @section('title', 'Home')
 
 @section('content')
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="brand-hover navbar-brand page-scroll" href="#page-top">K-State ACM</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav-hover nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="#about">Meet Us</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services">ACM SIG</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#portfolio">Events</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="{{ url('/apps') }}">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
 
     <header>
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 id="homeHeading">K-State Association for Computing Machinery</h1>
-                <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <hr class="purple-hr">
+                <p>The Association for Computing Machinery is the professional organization for computer scientists. We strive to bring the computer science
+                community closer by hosting a variety of events as well as getting involved in the community.</p>
+                <a href="#about" class="btn-purple btn-hover btn btn-primary btn-xl page-scroll">Find Out More</a>
             </div>
         </div>
     </header>
@@ -18,10 +54,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">We've got what you need!</h2>
+                    <h2 class="section-heading">The People</h2>
                     <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                    <p class="text-faded">Get to know the Officers and Junior Officers that make all of the ACM events possible.</p>
+                    <a href="{{ url('/officers' )}}" class="btn-purple btn-hover page-scroll btn btn-default btn-xl sr-button">Meet us!</a>
                 </div>
             </div>
         </div>
@@ -31,7 +67,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
+                    <h2 class="section-heading">Special Interest Groups</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -40,30 +76,32 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Sturdy Templates</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                        <i class="fa fa-4x fa-users text-primary sr-icons"></i>
+                        <h3>ACM-W</h3>
+                        <p class="text-muted">ACM-W supports, celebrates, and advocates internationally for the full engagement of women in all aspects of the computing field.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                        <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                        <i class="fa fa-4x fa-database text-primary sr-icons"></i>
+                        <h3>ACM-SIGAI</h3>
+                        <p class="text-muted">We work with Machine Learning, Autonomous Robots, Data Science, Game AI and other related branches of AI.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                        <i class="fa fa-4x fa-code-fork text-primary sr-icons"></i>
+                        <h3>Mobile Dev Club</h3>
+                        <p class="text-muted">Students develop software for mobile devices such as tablets and phones.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <i class="fa fa-4x fa-code text-primary sr-icons"></i>
+                        <h3>Game Dev Club</h3>
+                        <p class="text-muted">Club members work in teams to develop computer games. We also hosts game jams annually.
+
+</p>
                     </div>
                 </div>
             </div>
@@ -79,10 +117,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Community Involvment
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Stem Nights
                                 </div>
                             </div>
                         </div>
@@ -94,10 +132,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Student Involvment
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Programming Competitions
                                 </div>
                             </div>
                         </div>
@@ -109,10 +147,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Student Involvment
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    LAN Parties
                                 </div>
                             </div>
                         </div>
@@ -124,25 +162,25 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Student Involvment
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Help Sessions
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="i#" class="portfolio-box">
+                    <a href="#" class="portfolio-box">
                         <img src="{{ asset( 'img/portfolio/thumbnails/5.jpg') }}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Student Involvment
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Tech Talks
                                 </div>
                             </div>
                         </div>
@@ -154,10 +192,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Industry Involvment
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Industry Series
                                 </div>
                             </div>
                         </div>
@@ -170,8 +208,8 @@
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
+                <h2>Check out upcoming events!</h2>
+                <a href="https://orgsync.com/86744/chapter" class="btn-purple btn-hover btn btn-default btn-xl sr-button">Orgsync</a>
             </div>
         </div>
     </aside>
@@ -180,17 +218,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <h2 class="section-heading">Get In Touch!</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                    <p>Ready to get involved? Have an event idea you'd like to see? That's great! Send us an email and we will get back to you as soon as possible!</p>
                 </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
+
+                <div class="col-lg-4 col-lg-offset-4 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a class="email-link" href="mailto:ksuacm@ksu.edu">ksuacm@ksu.edu</a></p>
                 </div>
             </div>
         </div>
