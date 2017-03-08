@@ -1,7 +1,0 @@
-<?php
-    define('DBHOST', '');
-    define('DBUSER', '');
-    define('DBPASS', '');
-    define('DATABASE', '');
-    define('URL', '');
-?>
