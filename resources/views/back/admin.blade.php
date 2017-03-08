@@ -54,7 +54,7 @@
       <tbody class="searchable">
         @foreach($users as $user)
         <tr>
-          <td><a href="{{ url('/profile/'.$user->eid) }}">{{ $user->eid }}</a></td>
+          <td><a href="{{ url('/apps/profile/'.$user->eid) }}">{{ $user->eid }}</a></td>
           <td>{{ $user->firstname }}</td>
           <td>{{ $user->lastname }}</td>
           <td>@if($user->jofficer == 1)True @else False @endif</td>

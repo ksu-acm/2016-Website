@@ -65,7 +65,7 @@
 
 <div class="row">
   <div class="col-sm-2 col-sm-offset-5">
-    <a href="{{ url('order') }}"><button class="btn btn-lg btn-primary" type="button">Order Pizza</button></a>
+    <a href="{{ url('/apps/order') }}"><button class="btn btn-lg btn-primary" type="button">Order Pizza</button></a>
   </div>
   </div>
 
@@ -84,7 +84,7 @@
     @if(Auth::user()->officer == 1 || Auth::user()->advisor == 1)
     <div class="flextable-item">
       <div class="btn-group">
-        <a href="{{ url('event') }}">
+        <a href="{{ url('/apps/event') }}">
         <button type="button" class="btn btn-primary-outline">
           <span class="icon icon-add-to-list"></span>
         </button>
@@ -113,7 +113,7 @@
           <td>
             @if(Auth::check())
               @if(Auth::user()->officer == 1 || Auth::user()->advisor == 1)
-                <a href="{{ url('event/'.$event->id) }}">{{ $event->eventName }}</a>
+                <a href="{{ url('/apps/event/'.$event->id) }}">{{ $event->eventName }}</a>
               @endif
             @else
             {{ $event->eventName }}

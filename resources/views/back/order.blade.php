@@ -28,7 +28,7 @@
 
   <hr class="m-t">
 
-  <form method="POST" action="{{ url('/order') }}">
+  <form method="POST" action="{{ url('/apps/order') }}">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group form-half">
       <label for="attendees">Expected Attendance</label>

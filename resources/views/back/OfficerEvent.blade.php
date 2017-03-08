@@ -33,7 +33,7 @@
          </div>
       </div>
    </div>
-<form method="POST" action="{{ url('/attendance/'.$event->EventID) }}">
+<form method="POST" action="{{ url('/apps/attendance/'.$event->EventID) }}">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    <div class="table-full">
       <div class="table-responsive">
@@ -47,7 +47,7 @@
             <tbody class="searchable">
                @foreach($users as $user)
                <tr>
-                  <td><a href="{{ url('/profile/'.$user->eid) }}">{{ $user->firstname }} {{$user->lastname}}</a></td>
+                  <td><a href="{{ url('/apps/profile/'.$user->eid) }}">{{ $user->firstname }} {{$user->lastname}}</a></td>
                   <td>
                      <div class="row">
                        <div class="text-center">

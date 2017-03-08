@@ -30,7 +30,7 @@
     @endif
   </div>
   <hr class="m-t">
-  <form method="POST" action="{{ url('/profile/'.$user->eid) }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ url('/apps/profile/'.$user->eid) }}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
       <label for="firstname">First Name</label>

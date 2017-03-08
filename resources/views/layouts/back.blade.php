@@ -41,16 +41,16 @@
                   <li><a href="{{ url('/apps') }}">Overview</a></li>
                 @endif
                 @if (Request::is('food'))
-                  <li class="active"><a href="{{ url('/food') }}">Food Analytics</a></li>
+                  <li class="active"><a href="{{ url('/apps/food') }}">Food Analytics</a></li>
                 @else
-                  <li><a href="{{ url('/food') }}">Food Analytics</a></li>
+                  <li><a href="{{ url('/apps/food') }}">Food Analytics</a></li>
                 @endif
                 @if(Auth::check())
                   @if (Auth::user()->admin == 1 || Auth::user()->jofficer == 1 || Auth::user()->officer == 1 || Auth::user()->advisor == 1)
                     @if (Request::is('attendanceAnalytics'))
-                      <li class="active"><a href="{{ url('/attendance/analytics') }}">Attendance Analytics</a></li>
+                      <li class="active"><a href="{{ url('/apps/attendance/analytics') }}">Attendance Analytics</a></li>
                       @else
-                        <li><a href="{{ url('/attendance/analytics') }}">Attendance Analytics</a></li>
+                        <li><a href="{{ url('/apps/attendance/analytics') }}">Attendance Analytics</a></li>
                       @endif
                   @endif
                 @endif
@@ -59,14 +59,14 @@
                   @if (Auth::user()->admin == 1)
                   <li class="nav-header">Attendance</li>
                     @if (Request::is('Attendance'))
-                      <li class="active"><a href="{{ url('/attendance') }}">Manual Entry</a></li>
+                      <li class="active"><a href="{{ url('/apps/attendance') }}">Manual Entry</a></li>
                       @else
-                        <li><a href="{{ url('/attendance') }}">Manual Entry</a></li>
+                        <li><a href="{{ url('/apps/attendance') }}">Manual Entry</a></li>
                       @endif
                     <!--@if (Request::is('CardSwiper'))
-                        <li class="active"><a href="{{ url('/cardswiper') }}">Card Swiper</a></li>
+                        <li class="active"><a href="{{ url('/apps/cardswiper') }}">Card Swiper</a></li>
                         @else
-                          <li><a href="{{ url('/cardswiper') }}">Card Swiper</a></li>
+                          <li><a href="{{ url('/apps/cardswiper') }}">Card Swiper</a></li>
                         @endif
                       -->
                     @endif
@@ -76,21 +76,20 @@
                 @if(Auth::check())
                   @if (Auth::user()->admin == 1)
                     @if (Request::is('admin'))
-                      <li class="active"><a href="{{ url('/admin') }}">Administration</a></li>
+                      <li class="active"><a href="{{ url('/apps/admin') }}">Administration</a></li>
                       @else
-                      <li><a href="{{ url('/admin') }}">Administration</a></li>
+                      <li><a href="{{ url('/apps/admin') }}">Administration</a></li>
                     @endif
                   @endif
                   @if (Request::is('profile'))
-                    <li class="active"><a href="{{ url('/profile') }}">My Profile</a></li>
+                    <li class="active"><a href="{{ url('/apps/profile') }}">My Profile</a></li>
                   @else
-                    <li><a href="{{ url('/profile') }}">My Profile</a></li>
+                    <li><a href="{{ url('/apps/profile') }}">My Profile</a></li>
                   @endif
                 <li><a href="{{ url('/auth/logout') }}">Log Out</a></li>
                 @else
                   <li><a href="{{ url('/auth/login') }}">Log In</a></li>
                 @endif
-                <!--<li><a href="#docsModal" data-toggle="modal">Example modal</a></li>-->
               </ul>
               <hr class="visible-xs m-t">
             </div>

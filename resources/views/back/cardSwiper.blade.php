@@ -26,7 +26,7 @@
     @endif
   </div>
 
-  <form method="POST" action=" url('/cardSwiper') ">
+  <form method="POST" action=" url('/apps/cardSwiper') ">
      <input type="hidden" name="_token" value="{{ csrf_token() }}">
      <div class="table-full">
         <div class="table-responsive">

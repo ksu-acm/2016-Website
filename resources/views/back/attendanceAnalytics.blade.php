@@ -86,7 +86,7 @@
           <tr>
             <td>{{$ranks[$key]}}</td>
             <td>
-                <a href="{{ url('profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
+                <a href="{{ url('/apps/profile/'.$user->eid) }}">{{ $user->firstname}} {{$user->lastname }}</a>
             </td>
             <td>
               <div class="text-center">

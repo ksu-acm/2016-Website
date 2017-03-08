@@ -28,7 +28,7 @@
 
   <hr class="m-t">
   <?php $id = Request::segment(2); if($id == null){$id = 0;} ?>
-  <form method="POST" action="{!! url('/event/'.$id) !!}">
+  <form method="POST" action="{!! url('/apps/event/'.$id) !!}">
     <input type="hidden" name="_token" value="{!! csrf_token() !!}">
     <div class="form-group">
       <label for="eventName">Event Name</label>
@@ -69,7 +69,7 @@
     <button type="submit" class="btn btn-default">@if($event != "") Update Event @else Add Event @endif</button>
   </form>
   @if($event != "")
-    <form method="POST" action="{!! url('delete/event/'.$id) !!}">
+    <form method="POST" action="{!! url('/apps/delete/event/'.$id) !!}">
       <input type="hidden" name="_token" value="{!! csrf_token() !!}">
       <button type="submit" class="btn btn-danger delete" onclick="return confirm('Are you sure you want to delete @if($event != ""){!! $event->eventName !!}@endif ?');">Delete Event</button>
     </form>
