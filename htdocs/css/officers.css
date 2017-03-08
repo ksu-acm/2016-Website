@@ -1,0 +1,31 @@
+header {
+    background-image: url('/img/officers.jpg');
+}
+
+.purple-btn {
+    background-color: #5a2b81;
+}
+
+.purple-btn:hover {
+    background-color: black !important;
+}
+
+.btn-primary:active {
+    background-color: #5a2b81 !important;
+    color: white !important;
+}
+
+.btn-primary:focus {
+    color: white !important;
+    background-color: #5a2b81 !important;
+}
+
+.primary {
+    border-color: #5a2b81 !important;
+    max-width: inherit;
+}
+
+.thumbnail {
+    border: none;
+    margin-bottom: 0px;
+}
