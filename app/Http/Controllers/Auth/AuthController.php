@@ -36,7 +36,7 @@ class AuthController extends Controller
 
     public function CASLogin()
     {
-        return redirect('/profile');
+        return redirect('/apps/profile');
     }
 
     public function Logout()
