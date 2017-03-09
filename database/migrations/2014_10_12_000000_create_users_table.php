@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
       $table->string('title')->default('');
       $table->string('bio')->default('');
       $table->string('picture')->default('');
+      $table->string('year')->default('');
+      $table->string('iso')->default('');
       $table->rememberToken();
       $table->timestamps();
     });
