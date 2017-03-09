@@ -17,8 +17,8 @@ class CreateEventsTable extends Migration
       $table->increments('id');
       $table->string('name');
       $table->string('category');
-      $table->timestamp('start_time');
-      $table->timestamp('end_time');
+      $table->timestamp('start_time')->nullable();
+      $table->timestamp('end_time')->nullable();
       $table->unsignedInteger('attendees');
       $table->unsignedInteger('pizza_ordered');
       $table->unsignedInteger('leftover_slices');
@@ -30,8 +30,6 @@ class CreateEventsTable extends Migration
       $table->decimal('total_donation');
       $table->decimal('food_cost');
       $table->mediumText('notes');
-      $table->integer('created_by');
-      $table->integer('updated_by');
       $table->timestamps();
     });
   }
@@ -42,7 +40,6 @@ class CreateEventsTable extends Migration
   */
   public function down()
   {
-    Schema::disableForeignKeyConstraints();
     Schema::drop('events');
   }
 }
