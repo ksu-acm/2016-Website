@@ -43,24 +43,26 @@
       <thead>
         <tr>
           <th>eID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Jr. Officer</th>
+          <th>First</th>
+          <th>Last</th>
+          <th>User</th>
+          <th>Junior Officer</th>
           <th>Officer</th>
           <th>Advisor</th>
-          <th>Admin</th>
+          <th>Administrator</th>
         </tr>
       </thead>
       <tbody class="searchable">
         @foreach($users as $user)
         <tr>
           <td><a href="{{ url('/apps/profile/'.$user->eid) }}">{{ $user->eid }}</a></td>
-          <td>{{ $user->firstname }}</td>
-          <td>{{ $user->lastname }}</td>
-          <td>@if($user->jofficer == 1)True @else False @endif</td>
-          <td>@if($user->officer == 1)True @else False @endif</td>
-          <td>@if($user->advisor == 1)True @else False @endif</td>
-          <td>@if($user->admin == 1)True @else False @endif</td>
+          <td>{{ $user->first }}</td>
+          <td>{{ $user->last }}</td>
+          <td><input type="checkbox" disabled {{ $user->hasRole('User') ? 'checked' : '' }}></td>
+          <td><input type="checkbox" disabled {{ $user->hasRole('ACM Junior Officer') ? 'checked' : '' }}></td>
+          <td><input type="checkbox" disabled {{ $user->hasRole('ACM Officer') ? 'checked' : '' }}></td>
+          <td><input type="checkbox" disabled {{ $user->hasRole('ACM Advisor') ? 'checked' : '' }}></td>
+          <td><input type="checkbox" disabled {{ $user->hasRole('Administrator') ? 'checked' : '' }}></td>
         </tr>
         @endforeach
       </tbody>

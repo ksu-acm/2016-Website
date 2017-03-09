@@ -3,6 +3,7 @@
 use Closure;
 use Cas;
 use Auth;
+use App\Role;
 use App\User;
 
 class CASAuthenticate
@@ -25,6 +26,7 @@ class CASAuthenticate
                 $user->email = $user->eid."@ksu.edu";
                 $user->firstname = $user->eid;
                 $user->save();
+                $user->roles()->attach(Role::where('name', 'User')->first());
             }
             Auth::login($user);
         }

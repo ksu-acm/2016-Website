@@ -12,10 +12,7 @@ class AdminController extends Controller
 {
   public function Admin()
   {
-    if(Auth::user()->admin == 1){
-      $users = \DB::table('users')->get();
-      return view('back/admin', compact('users'));
-    }
-    return $this->PermError();
+    $users = User::all();
+    return view('back/admin', compact('users'));
   }
 }

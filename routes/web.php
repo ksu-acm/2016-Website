@@ -40,7 +40,13 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/apps/profile/{eid?}', 'UserController@ShowProfile');
   Route::post('/apps/profile/{eid}', 'UserController@UpdateProfile');
 
-  Route::get('/apps/admin', 'AdminController@Admin');
+  #Route::get('/apps/admin', 'AdminController@Admin');
+  Route::get('/apps/admin', [
+    'uses' => 'AdminController@Admin',
+    'as' => '/apps/admin',
+    'middleware' => 'roles',
+    'roles' => ['Administrator']
+  ]);
 
 });
 

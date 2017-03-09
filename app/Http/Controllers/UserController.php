@@ -84,6 +84,14 @@ class UserController extends Controller
     $user->updated_by = Auth::user()->id;
     $user->save();
 
+    /*
+      $user = user;
+      $user->roles()->detach();
+      if ($request['role_user']){
+        $user->roles()->attach($role_object);
+      }
+    */
+
     if($eid == Auth::user()->eid){
       return redirect()->action('UserController@ShowProfile')->with('success', 'Your profile has been updated!');
     }
