@@ -40,6 +40,7 @@ a:link, a:visited, a:active, a:hover {
 
 .no-bullets {
   list-style: none;
+  padding-left: 0;
 }
 
 li input[type=checkbox], li input[type=radio] {

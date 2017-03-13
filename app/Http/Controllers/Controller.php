@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function PermError()
+    public function Error()
     {
       return redirect()->action('BackController@Index')->withErrors("You don't have privileges for that!");
     }

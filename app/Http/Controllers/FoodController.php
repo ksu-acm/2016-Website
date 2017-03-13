@@ -23,7 +23,7 @@ class FoodController extends Controller
         $event = \DB::table("pizza")->where("id", $id)->first();
         return view("back/event", compact("event"));
       }
-      return $this->PermError();
+      return $this->Error();
     }
 
     public function UpdateEvent(Request $request, $id = 0)
@@ -148,7 +148,7 @@ class FoodController extends Controller
         ]);
         return redirect()->action("FoodController@ShowFood")->with("success", "Added ".$eventName."!");
       }
-      return $this->PermError();
+      return $this->Error();
     }
 
     public function DeleteEvent($id)
@@ -197,7 +197,7 @@ class FoodController extends Controller
 
         return redirect()->action("FoodController@ShowFood")->with("success", "Deleted ".$event->eventName."!");
       }
-      return $this->PermError();
+      return $this->Error();
     }
 
     public function ShowOrder()

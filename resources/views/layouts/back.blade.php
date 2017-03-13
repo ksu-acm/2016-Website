@@ -74,14 +74,14 @@
 
                 <li class="nav-header">My Profile</li>
                 @if(Auth::check())
-                  @if (Auth::user()->admin == 1)
-                    @if (Request::is('admin'))
+                  @if (Auth::user()->hasRole('Administrator'))
+                    @if (Request::is('apps/admin'))
                       <li class="active"><a href="{{ url('/apps/admin') }}">Administration</a></li>
                       @else
                       <li><a href="{{ url('/apps/admin') }}">Administration</a></li>
                     @endif
                   @endif
-                  @if (Request::is('profile'))
+                  @if (Request::is('apps/profile'))
                     <li class="active"><a href="{{ url('/apps/profile') }}">My Profile</a></li>
                   @else
                     <li><a href="{{ url('/apps/profile') }}">My Profile</a></li>

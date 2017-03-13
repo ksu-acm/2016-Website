@@ -9,9 +9,7 @@ class BackController extends Controller
 {
   public function Index()
   {
-    $pizzaTotals = \DB::table("pizzaTotals")->first();
-    $users = \DB::table('users')->orderBy('events_attended', 'desc')->get();
-    return view('back/index', compact('pizzaTotals', 'users'));
+    return view('back/index');
   }
 
 }

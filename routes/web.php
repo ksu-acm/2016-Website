@@ -37,16 +37,13 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/apps/cardswiper', 'EventController@CardSwiper');
   Route::get('/apps/cardswiper', 'EventController@Swipe');
 
-  Route::get('/apps/profile/{eid?}', 'UserController@ShowProfile');
-  Route::post('/apps/profile/{eid}', 'UserController@UpdateProfile');
+  #Route::get('/apps/profile/{eid?}', 'UserController@ShowProfile');
+  #Route::post('/apps/profile/{eid}', 'UserController@UpdateProfile');
+  Route::get('/apps/profile/{eid?}', ['uses' => 'UserController@ShowProfile', 'roles' => ['User', 'Administrator']]);
+  Route::post('/apps/profile/{eid}', ['uses' => 'UserController@UpdateProfile', 'roles' => ['User', 'Administrator']]);
 
   #Route::get('/apps/admin', 'AdminController@Admin');
-  Route::get('/apps/admin', [
-    'uses' => 'AdminController@Admin',
-    'as' => '/apps/admin',
-    'middleware' => 'roles',
-    'roles' => ['Administrator']
-  ]);
+  Route::get('/apps/admin', ['uses' => 'AdminController@Admin', 'roles' => ['Administrator']]);
 
 });
 
