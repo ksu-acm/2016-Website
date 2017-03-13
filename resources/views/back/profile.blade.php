@@ -9,11 +9,6 @@
       <h2 class="dashhead-title">{{ $user->first }} {{ $user->last }}</h2>
     </div>
     @include('subviews/message')
-    @if(Auth::user() != $user && Auth::user()->hasRole('Administrator'))
-    <div class="alert alert-info" role="alert">
-      <p>Currently editing {{ $user->first }} {{ $user->last }}.</p>
-    </div>
-    @endif
   </div>
   <hr class="m-t">
   <form method="POST" action="{{ url('/apps/profile/'.$user->eid) }}" enctype="multipart/form-data">

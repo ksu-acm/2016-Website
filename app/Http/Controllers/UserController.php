@@ -33,13 +33,10 @@ class UserController extends Controller
     if($eid != Auth::user()->eid && Auth::user()->hasRole('Administrator') != 1){
       return $this->Error();
     }
-
     if($eid == null){
       $eid = Auth::user()->eid;
     }
-
     $user = User::where('eid', $eid)->first();
-
     $this->validate($request, [
       'first' => 'required|string|max:255',
       'last' => 'required|string|max:255',
@@ -48,7 +45,6 @@ class UserController extends Controller
       'title' => 'string|max:255',
       'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
-
     $user->first = $request->input('first');
     $user->last = $request->input('last');
     $user->email = $request->input('email');
@@ -59,7 +55,6 @@ class UserController extends Controller
       \Image::make($request->file('picture'))->resize(200, 200)->encode('jpg')->save(public_path().'/storage/img/'.$picture);
       $user->picture = $picture;
     }
-
     if(Auth::user()->hasRole('Administrator')){
       $roles = Role::all();
       $user->roles()->detach();
@@ -69,9 +64,7 @@ class UserController extends Controller
         }
       }
     }
-
     $user->save();
-
     if($eid == Auth::user()->eid){
       return redirect()->action('UserController@ShowProfile')->with('success', 'Your profile has been updated!');
     }
