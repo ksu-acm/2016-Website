@@ -8,21 +8,7 @@
       <h6 class="dashhead-subtitle">Dashboards</h6>
       <h2 class="dashhead-title">Overview</h2>
     </div>
-    @if (count($errors) > 0)
-      <div class="alert alert-danger" role="alert">
-        <strong>Error!</strong>
-        <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-    @endif
-    @if(Session::has('success'))
-      <div class="alert alert-success" role="alert">
-        <strong>Success!</strong> {{ Session::get('success') }}
-      </div>
-    @endif
+    @include('subviews/message')
   </div>
   <div class="hr-divider m-t-md m-b">
     <h3 class="hr-divider-content hr-divider-heading">Attendance</h3>
