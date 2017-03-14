@@ -17,8 +17,7 @@ class CreateEventsTable extends Migration
       $table->increments('id');
       $table->string('name');
       $table->string('category');
-      $table->timestamp('start_time')->nullable();
-      $table->timestamp('end_time')->nullable();
+      $table->string('event_date');
       $table->unsignedInteger('attendees');
       $table->unsignedInteger('pizza_ordered');
       $table->unsignedInteger('leftover_slices');

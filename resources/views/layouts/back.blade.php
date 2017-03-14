@@ -12,6 +12,7 @@
   <link rel="apple-touch-icon-precomposed" href="{{ URL::asset('favicon.ico') }}" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
   <link href="{{ URL::asset('css/toolkit-inverse.min.css') }}" rel="stylesheet">
+  <link href="{{ URL::asset('css/daterangepicker.css') }}" rel="stylesheet">
   <link href="{{ URL::asset('css/back.css') }}" rel="stylesheet">
   <script src="{{ URL::asset('js/ga.js') }}"></script>
   @yield('head')
@@ -113,6 +114,8 @@
 </div>
 
 <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('js/moment.min.js') }}"></script>
+<script src="{{ URL::asset('js/daterangepicker.js') }}"></script>
 <script src="{{ URL::asset('js/chart.js') }}"></script>
 <script src="{{ URL::asset('js/tablesorter.min.js') }}"></script>
 <script src="{{ URL::asset('js/toolkit.min.js') }}"></script>

@@ -48,6 +48,18 @@ li input[type=checkbox], li input[type=radio] {
   vertical-align: top;
 }
 
+.daterangepicker {
+  color: #51586a;
+}
+
+.daterangepicker .input-mini {
+  color: #FFF;
+}
+
+.daterangepicker .input-mini:focus {
+  color: #51586a;
+}
+
 @media (min-width: 768px) {
   body {
       padding-top: 50px;

@@ -30,11 +30,11 @@ class BackController extends Controller
       $event = null;
       return view('back/event', compact('event'));
     }
-    $event = Event::where('id', id)->first();
+    $event = Event::where('id', $id)->first();
     return view('back/event', compact('event'));
   }
 
-  public function UpdateEvent($id = null)
+  public function UpdateEvent(Request $request, $id = null)
   {
     $event = null;
     $add = true;
@@ -47,8 +47,7 @@ class BackController extends Controller
 
     $this->validate($request, [
       'name' => 'required|string|max:255',
-      'start_time' => 'required',
-      'end_time' => 'required',
+      'event_date' => 'required|string|max:255',
       'attendees' => 'required|min:0',
       'pizza_ordered' => 'required|min:0',
       'leftover_slices' => 'required|min:0',
@@ -61,8 +60,8 @@ class BackController extends Controller
     ]);
 
     $event->name = $request->input('name');
-    $event->start_time = $request->input('start_time');
-    $event->end_time = $request->input('end_time');
+    $event->category = "";
+    $event->event_date = $request->input('event_date');
     $event->attendees = $request->input('attendees');
     $event->pizza_ordered = $request->input('pizza_ordered');
     $event->leftover_slices = $request->input('leftover_slices');
@@ -81,10 +80,20 @@ class BackController extends Controller
     $event->food_cost = $request->input('food_cost');
     $event->notes = $request->input('notes');
     $event->save();
-    if(add){
+    if($add){
       return redirect()->action('BackController@Events')->with('success', 'Event added!');
     }
     return redirect()->action('BackController@Events')->with('success', 'Event updated!');
+  }
+
+  public function DeleteEvent($id)
+  {
+    $event = Event::where('id', $id)->first();
+    if($event == null){
+      return redirect()->action('BackController@Events')->withError('Event not found!');
+    }
+    $event->delete();
+    return redirect()->action('BackController@Events')->with('success', 'Event deleted!');
   }
 
   public function Profile($eid = null)

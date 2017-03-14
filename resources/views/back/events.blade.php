@@ -48,12 +48,12 @@
       <tbody class="searchable">
         @foreach($events as $event)
         <tr>
-          <td><a href="{{ url('/apps/event/'.$event->id) }}">{{ $event->eventName }}</a></td>
-          <td>{{ date('m/d/y h:m', strtotime($event->start_time)) }}</td>
+          <td><a href="{{ url('/apps/event/'.$event->id) }}">{{ $event->name }}</a></td>
+          <td>{{ $event->event_date }}</td>
           <td>{{ $event->attendees }}</td>
-          <td>{{ $event->pizzas_ordered }}</td>
+          <td>{{ $event->pizza_ordered }}</td>
           <td>{{ $event->sandwiches_ordered }}</td>
-          <td>{{ round($event->total_donation - $event->food_cost, 2) }}</td>
+          <td>${{ round($event->total_donation - $event->food_cost, 2) }}</td>
         </tr>
         @endforeach
       </tbody>
