@@ -54,12 +54,16 @@ li input[type=checkbox], li input[type=radio] {
       padding-bottom: 50px;
   }
 
-  .form-half {
+  .form-half, .form-half-odd {
     display: inline-block;
     width: 47.18%;
   }
 
   .form-half:nth-child(even) {
+    margin-right: 5%;
+  }
+
+  .form-half-odd:nth-child(odd) {
     margin-right: 5%;
   }
 }

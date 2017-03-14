@@ -45,7 +45,7 @@
             <td>{{ date("g:i a", strtotime($event->EndTime)) }}</td>
             <form method="POST" action="{{ url('/apps/delete/attendance/'.$event->EventID) }}">
              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <td><button type="submit" class="btn btn-danger btn-sm" id="{{ $event->EventID }}" onclick="return confirm('Are you sure you want to delete @if($event != ""){!! $event->EventName !!}@endif ?');">Delete Event</button></td>
+            <td><button type="submit" class="btn btn-danger btn-sm" id="{{ $event->EventID }}" onclick="return confirm('Are you sure you want to delete @if($event != ""){{ $event->EventName }}@endif ?');">Delete Event</button></td>
             </form>
           </tr>
           @endforeach
