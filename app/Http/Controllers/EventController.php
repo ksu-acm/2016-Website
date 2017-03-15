@@ -75,16 +75,16 @@ class EventController extends Controller
     $event->notes = $request->input('notes');
     $event->save();
     if($add){
-      return redirect()->action('BackController@Events')->with('success', 'Event added!');
+      return redirect()->action('EventController@Events')->with('success', 'Event added!');
     }
-    return redirect()->action('BackController@Events')->with('success', 'Event updated!');
+    return redirect()->action('EventController@Events')->with('success', 'Event updated!');
   }
 
   public function Participation($id)
   {
     $event = Event::where('id', $id)->first();
     if($event == null){
-      return redirect()->action('BackController@Events')->withError('Event not found!');
+      return redirect()->action('EventController@Events')->withError('Event not found!');
     }
     return view('back/events/participation', compact('event'));
   }
@@ -93,9 +93,9 @@ class EventController extends Controller
   {
     $event = Event::where('id', $id)->first();
     if($event == null){
-      return redirect()->action('BackController@Events')->withError('Event not found!');
+      return redirect()->action('EventController@Events')->withError('Event not found!');
     }
     $event->delete();
-    return redirect()->action('BackController@Events')->with('success', 'Event deleted!');
+    return redirect()->action('EventController@Events')->with('success', 'Event deleted!');
   }
 }
