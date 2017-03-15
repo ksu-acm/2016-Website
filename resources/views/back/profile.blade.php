@@ -7,6 +7,9 @@
     <div class="dashhead-titles">
       <h6 class="dashhead-subtitle">My Profile</h6>
       <h2 class="dashhead-title">{{ $user->first }} {{ $user->last }}</h2>
+      <div class="rbutton">
+        <a href="#" class="btn btn-info" data-easein="slideUpIn" data-toggle="modal" data-target="#sync">Sync Student ID</a>
+      </form>
     </div>
     @include('subviews/message')
   </div>
@@ -61,4 +64,36 @@
       <button type="submit" class="btn btn-default">Update Profile</button>
     </form>
   </div>
-  @endsection
+  <div class="modal fade" id="sync">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sync Student ID</h4>
+      </div>
+      <form method="POST" action="{{ url('/apps/profile/'.$user->eid.'/id') }}">
+      <div class="modal-body">
+        <p>Swipe your card or enter your card number.</p>
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <div class="form-group">
+            <label for="iso">Card ISO: </label>
+            <input type="text" class="form-control" id="iso" name="iso" placeholder="{{ $user->iso }}" autofocus required>
+          </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-link modal-action" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn-link modal-action"><strong>Continue</strong></button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+@endsection
+
+@section('footer')
+<script>
+$("#reset").click(function() {
+  $("#iso").value = '';
+});
+</script>
+@endsection

@@ -36,27 +36,11 @@
         -->
         <ul class="nav nav-pills nav-stacked">
           <li class="nav-header">Dashboards</li>
-          @if (Request::is('apps'))
-          <li class="active"><a href="{{ url('/apps') }}">Overview</a></li>
-          @else
-          <li><a href="{{ url('/apps') }}">Overview</a></li>
-          @endif
+          <li class="{{ Request::is('apps') ? 'active' : '' }}"><a href="{{ url('/apps') }}">Overview</a></li>
           @if(Auth::user()->hasAnyRole(['ACM Officer', 'ACM Advisor', 'Administrator']))
-          @if (Request::is('events'))
-          <li {{ Request::is('events') ? 'class="active"' : '' }}><a href="{{ url('/apps/events') }}">Events</a></li>
-          @else
-          <li><a href="{{ url('/apps/events') }}">Events</a></li>
+          <li class="{{ Request::is('apps/event*') ? 'active' : '' }}"><a href="{{ url('/apps/events') }}">Events</a></li>
           @endif
-          @endif
-
-
-
-
-          @if(Request::is('food'))
-          <li class="active"><a href="{{ url('/apps/food') }}">Food Analytics</a></li>
-          @else
-          <li><a href="{{ url('/apps/food') }}">Food Analytics</a></li>
-          @endif
+          <li class="{{ Request::is('apps/food') ? 'active' : '' }}"><a href="{{ url('/apps/food') }}">Food Analytics</a></li>
           @if(Auth::check())
           @if(Auth::user()->admin == 1 || Auth::user()->jofficer == 1 || Auth::user()->officer == 1 || Auth::user()->advisor == 1)
           @if(Request::is('attendanceAnalytics'))
@@ -75,30 +59,16 @@
           @else
           <li><a href="{{ url('/apps/attendance') }}">Manual Entry</a></li>
           @endif
-          <!--@if (Request::is('CardSwiper'))
-          <li class="active"><a href="{{ url('/apps/cardswiper') }}">Card Swiper</a></li>
-          @else
-          <li><a href="{{ url('/apps/cardswiper') }}">Card Swiper</a></li>
-          @endif
-        -->
         @endif
         @endif
 
         <li class="nav-header">My Profile</li>
         @if(Auth::check())
         @if(Auth::user()->hasRole('Administrator'))
-        @if(Request::is('apps/admin'))
-        <li class="active"><a href="{{ url('/apps/admin') }}">Administration</a></li>
-        @else
-        <li><a href="{{ url('/apps/admin') }}">Administration</a></li>
-        @endif
+        <li class="{{ Request::is('apps/admin') ? 'active' : '' }}"><a href="{{ url('/apps/admin') }}">Administration</a></li>
         @endif
         @if(Auth::user()->hasRole('User'))
-        @if(Request::is('apps/profile'))
-        <li class="active"><a href="{{ url('/apps/profile') }}">My Profile</a></li>
-        @else
-        <li><a href="{{ url('/apps/profile') }}">My Profile</a></li>
-        @endif
+        <li class="{{ Request::is('apps/profile*') ? 'active' : '' }}"><a href="{{ url('/apps/profile') }}">My Profile</a></li>
         @endif
         <li><a href="{{ url('/auth/logout') }}">Log Out</a></li>
         @else

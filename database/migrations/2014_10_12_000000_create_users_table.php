@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
       $table->string('eid')->unique();
       $table->string('email')->unique();
       $table->string('first');
-      $table->string('last');
+      $table->string('last')->default('');
       $table->string('title')->default('');
       $table->string('bio')->default('');
       $table->string('picture')->default('');

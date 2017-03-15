@@ -21,13 +21,16 @@ Route::get('/sponsors', 'FrontController@Sponsors');
 //Back
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/apps', 'BackController@Index');
-  Route::get('/apps/events', ['uses' => 'BackController@Events', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
-  Route::get('/apps/event/{id?}', ['uses' => 'BackController@Event', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
-  Route::post('/apps/event/{id?}', ['uses' => 'BackController@UpdateEvent', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
-  Route::post('/apps/event/{id}/delete', ['uses' => 'BackController@DeleteEvent', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
+
+  Route::get('/apps/events', ['uses' => 'EventController@Events', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
+  Route::get('/apps/event/{id?}', ['uses' => 'EventController@Event', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
+  Route::post('/apps/event/{id?}', ['uses' => 'EventController@UpdateEvent', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
+  Route::get('/apps/event/{id}/participation', ['uses' => 'EventController@Participation', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
+  Route::post('/apps/event/{id}/delete', ['uses' => 'EventController@DeleteEvent', 'roles' => ['ACM Officer', 'ACM Advisor', 'Administrator']]);
 
   Route::get('/apps/profile/{eid?}', ['uses' => 'BackController@Profile', 'roles' => ['User', 'Administrator']]);
   Route::post('/apps/profile/{eid?}', ['uses' => 'BackController@UpdateProfile', 'roles' => ['User', 'Administrator']]);
+  Route::post('/apps/profile/{eid}/id', ['uses' => 'BackController@UpdateID', 'roles' => ['User', 'Administrator']]);
 
   Route::get('/apps/admin', ['uses' => 'AdminController@Admin', 'roles' => ['Administrator']]);
 

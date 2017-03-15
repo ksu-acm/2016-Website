@@ -7,6 +7,13 @@
     <div class="dashhead-titles">
       <h6 class="dashhead-subtitle">Dashboards</h6>
       <h2 class="dashhead-title">{{ $event!=null ? 'Update ' : 'Add ' }}Event</h2>
+      @if($event != null)
+        <form method="POST" action="{{ url('/apps/event/'.$event->id.'/delete') }}" class="rbutton">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <a href="{{ url('/apps/event/'.$event->id.'/participation') }}" class="btn btn-info participation">Participation</a>
+          <button type="submit" class="btn btn-danger rbutton" onclick="return confirm('Are you sure you want to delete {{ $event!=null ? $event->name : '' }}?');">Delete Event</button>
+        </form>
+       @endif
     </div>
     @include('subviews/message')
   </div>
@@ -61,12 +68,6 @@
     </div>
     <button type="submit" class="btn btn-default">{{ $event!=null ? 'Update Event' : 'Create Event' }}</button>
   </form>
-  @if($event != null)
-    <form method="POST" action="{{ url('/apps/event/'.$event->id.'/delete') }}">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <button type="submit" class="btn btn-danger delete" onclick="return confirm('Are you sure you want to delete {{ $event!=null ? $event->name : '' }}?');">Delete Event</button>
-    </form>
-   @endif
 @endsection
 
 @section('footer')

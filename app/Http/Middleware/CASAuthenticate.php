@@ -24,7 +24,7 @@ class CASAuthenticate
                 $user = new User;
                 $user->eid = Cas::user();
                 $user->email = $user->eid."@ksu.edu";
-                $user->firstname = $user->eid;
+                $user->first = $user->eid;
                 $user->save();
                 $user->roles()->attach(Role::where('name', 'User')->first());
             }
